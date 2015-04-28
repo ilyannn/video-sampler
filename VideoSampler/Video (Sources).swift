@@ -13,15 +13,15 @@ protocol VideoSourceDelegate: NSObjectProtocol {
     func selectionCompleted(#source: VideoSource, URL: NSURL?)
 }
 
-
+/// Abstract class representing a video source.
 class VideoSource: NSObject {
     weak var delegate: VideoSourceDelegate?
         
     func present(from source: UIViewController) {
         fatalError("abstract method")
-    }
-    
+    }    
 }
+
 
 class LibraryVideoSource: VideoSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     override func present(from source: UIViewController) {

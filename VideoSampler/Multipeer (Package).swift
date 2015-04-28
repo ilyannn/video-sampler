@@ -9,7 +9,7 @@
 import Foundation
 
 // MARK: Package format for image send/retrieve
-private let JPEGQuality: CGFloat = 0.1  // When sending.
+private let JPEGQuality: CGFloat = 0.03  // When sending.
 private let EndSentinel = "end".dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!
 
 class ImageCollection {

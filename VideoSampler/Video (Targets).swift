@@ -36,6 +36,7 @@ class DisplayOperation: NSOperation {
             
             if let target = targetViewController {
                 let vc = SquareGridController(images: images)
+                target.dismissViewControllerAnimated(false) {} // if something was presented
                 target.presentViewController ⬆︎ (vc, true, {})
             }
             
