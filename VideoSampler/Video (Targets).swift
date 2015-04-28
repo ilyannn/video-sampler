@@ -8,7 +8,7 @@
 
 import Foundation
 
-private let JPEGQuality: CGFloat = 0.3
+// MARK: Operation that sends images
 
 /// This operation will not start until displayImages is set.
 class DisplayOperation: NSOperation {
@@ -40,10 +40,9 @@ class DisplayOperation: NSOperation {
             }
             
             if let service = targetMultipeerService {
-                for (index, image) in enumerate(images) {
-                    let data = UIImageJPEGRepresentation(image, JPEGQuality)
-                    service.send(data: data)
-                }
+                for package in ImageCollection(local: images).packageRepresentation {
+                    service.send(data: package)
+                }                
             }
             
         } else {

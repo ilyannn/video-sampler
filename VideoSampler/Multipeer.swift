@@ -6,16 +6,25 @@
 //  Copyright (c) 2015 ilya n. All rights reserved.
 //
 
-import MultipeerConnectivity;
+import MultipeerConnectivity
 
 private let ServiceType = "video-sampler"
 
+
+protocol MultipeerServiceDelegate: NSObjectProtocol {
+    func collectionCompleted(collection: ImageCollection, by: MultipeerService)
+}
+
 class MultipeerService: NSObject {
 
+    weak var delegate: MultipeerServiceDelegate?
+    
     private let multiSession: MCSession    
     private var peerIDs: [MCPeerID] = []
     private var advertiserAss: MCAdvertiserAssistant 
             
+    private var collectedData: [MCPeerID: ImageCollection] = [:]
+    
     override init() {
         multiSession = MCSession(peer: MCPeerID(displayName: UIDevice.currentDevice().name))
         advertiserAss = MCAdvertiserAssistant(serviceType: ServiceType, discoveryInfo: nil, session: multiSession)
@@ -50,7 +59,7 @@ class MultipeerService: NSObject {
 
 extension MultipeerService: MCSessionDelegate {
     func session(session: MCSession!, peer peerID: MCPeerID!, didChangeState state: MCSessionState) {
-        println("peer \(peerID) state = \(state)")
+        println("peer \(peerID) state = \(state.rawValue)")
     }
     
     func session(session: MCSession!, didStartReceivingResourceWithName resourceName: String!, fromPeer peerID: MCPeerID!, withProgress progress: NSProgress!) {
@@ -63,6 +72,16 @@ extension MultipeerService: MCSessionDelegate {
     
     func session(session: MCSession!, didReceiveData data: NSData!, fromPeer peerID: MCPeerID!) {
         println("Received \(data.length) bytes of data from \(peerID.displayName)")
+        
+        var collection = collectedData[peerID]  // existing or new
+            ?? (ImageCollection() ⨁ { collectedData[peerID] = $0 })
+        
+        collection.collect(data: data)
+        
+        if collection.completed {
+            collectedData[peerID] = nil
+            delegate?.collectionCompleted(collection, by: self)
+        }
     }
     
     func session(session: MCSession!, didReceiveStream stream: NSInputStream!, withName streamName: String!, fromPeer peerID: MCPeerID!) {

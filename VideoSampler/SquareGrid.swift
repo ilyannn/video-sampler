@@ -38,13 +38,17 @@ class SquareGridController: UIViewController {
     let gridImages: [UIImage]
     let gridSize: Int
         
+    convenience init(collection: ImageCollection) {
+        self.init(images: collection.imageList)
+    }
+    
     init(images: [UIImage]) {
         gridImages = images
         gridSize = sqrt_up(images.count)
         super.init(nibName: nil, bundle: nil)
     }
 
-    class func prefersStatusBarHidden() -> Bool {
+    override func prefersStatusBarHidden() -> Bool {
         return true
     }
 

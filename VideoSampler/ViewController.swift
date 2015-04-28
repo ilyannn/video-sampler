@@ -19,12 +19,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var overLabel: UILabel!
     
     @IBOutlet weak var targetButton: UIButton!
-    @IBOutlet weak var recordButton: UIButton!
     
     @IBOutlet weak var samplingProgressView: UIProgressView!
     
     let multipeerService = MultipeerService()
-    let librarySourceUI = LibraryVideoSource()
+    
+    let librarySourceUI = LibraryVideoSource() // Held strongly
     let dropboxSourceUI = DropboxVideoSource()
     
     /// User-selected values.
@@ -32,6 +32,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         librarySourceUI.delegate = self
+        dropboxSourceUI.delegate = self
+        multipeerService.delegate = self
         
         super.viewDidLoad()
         parametersUpdate(self)
@@ -79,6 +81,14 @@ extension ViewController: MCBrowserViewControllerDelegate {
     }
 }
 
+extension ViewController: MultipeerServiceDelegate {
+    func collectionCompleted(collection: ImageCollection, by: MultipeerService) {
+        presentViewController(SquareGridController(collection: collection), animated: true) {}
+    }
+}
+
+
+// MARK: - Sampling Operation
 private let SamplingQueue = NSOperationQueue()
 
 extension ViewController: VideoSourceDelegate {
@@ -86,33 +96,13 @@ extension ViewController: VideoSourceDelegate {
         dismissViewControllerAnimated(true) {}
         
         if let video = URL {
+            samplingProgressView.hidden = false
+            samplingProgressView.progress = 0
+            
             SamplingQueue.addOperations(prepareSamplingOperations(video), waitUntilFinished: false)
         }
     }
-    
-    func prepareSamplingOperations(video: NSURL) -> [NSOperation] {
-        samplingProgressView.hidden = false
-        samplingProgressView.progress = 0
-
-        let display = DisplayOperation() ⨁ {
-            $0.targetViewController = self
-            $0.targetMultipeerService = multipeerService
-        }
         
-        let sample = SamplingOperation(parameters: samplingParameters, video: video)
-        
-        sample.totalProgress.addObserver(self, 
-            forKeyPath: "fractionCompleted", 
-            options: .New, 
-            context: nil)
-        
-        sample.completionBlock = {
-            display.displayImages = sample.sampleImages
-        } 
-
-        return [sample, display]
-    }
-    
     override func observeValueForKeyPath(keyPath: String, 
         ofObject object: AnyObject, 
         change: [NSObject : AnyObject], 
@@ -122,5 +112,27 @@ extension ViewController: VideoSourceDelegate {
             samplingProgressView.setProgress ⬆︎ (Float(progress.fractionCompleted), true)
         }
     }
-    
+
+}
+
+extension ViewController {
+    func prepareSamplingOperations(video: NSURL) -> [NSOperation] {
+        
+        let display = DisplayOperation() ⨁ {
+            $0.targetViewController = self
+            $0.targetMultipeerService = multipeerService
+        }
+        
+        let sample = SamplingOperation(parameters: samplingParameters, video: video)
+        
+        sample.totalProgress.addObserver(self, forKeyPath: "fractionCompleted", 
+            options: .New, context: nil)
+        
+        sample.completionBlock = {
+            display.displayImages = sample.sampleImages
+        } 
+        
+        return [sample, display]
+    }
+
 }

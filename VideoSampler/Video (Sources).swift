@@ -16,7 +16,7 @@ protocol VideoSourceDelegate: NSObjectProtocol {
 
 class VideoSource: NSObject {
     weak var delegate: VideoSourceDelegate?
-    
+        
     func present(from source: UIViewController) {
         fatalError("abstract method")
     }
