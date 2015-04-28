@@ -24,9 +24,10 @@ class SquareParameters: SamplingParameters {
     }
 }
 
-private func sqrt_up(number: Int) -> Int {
-    let result = Int(sqrt(Float(number)))
-    if result * result < number {
+/// The smallest number X such that X * X >= N.
+private func sqrt_up(n: Int) -> Int {
+    let result = Int(sqrt(Float(n)))
+    if result * result < n {
         return result + 1
     }
     return result
@@ -36,11 +37,15 @@ private func sqrt_up(number: Int) -> Int {
 class SquareGridController: UIViewController {
     let gridImages: [UIImage]
     let gridSize: Int
-    
+        
     init(images: [UIImage]) {
         gridImages = images
         gridSize = sqrt_up(images.count)
         super.init(nibName: nil, bundle: nil)
+    }
+
+    class func prefersStatusBarHidden() -> Bool {
+        return true
     }
 
     required init(coder aDecoder: NSCoder) {
