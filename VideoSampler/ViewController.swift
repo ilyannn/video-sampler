@@ -25,6 +25,7 @@ class ViewController: UIViewController {
     
     let multipeerService = MultipeerService()
     let librarySourceUI = LibraryVideoSource()
+    let dropboxSourceUI = DropboxVideoSource()
     
     /// User-selected values.
     var samplingParameters: SamplingParameters! 
@@ -62,7 +63,7 @@ extension ViewController {
     }
     
     @IBAction func openDropbox(sender: AnyObject) {
-        // TODO: dropbox source
+        dropboxSourceUI.present(from: self)
     }
 }
 

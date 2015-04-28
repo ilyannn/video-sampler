@@ -18,24 +18,22 @@ class VideoSource: NSObject {
     weak var delegate: VideoSourceDelegate?
     
     func present(from source: UIViewController) {
-        source.presentViewController(selectionViewController(), animated: true) {
-            // do nothing
-        }
-    }
-    
-    private func selectionViewController() -> UIViewController {
         fatalError("abstract method")
     }
+    
 }
 
 class LibraryVideoSource: VideoSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    private override func selectionViewController() -> UIViewController {
-        return UIImagePickerController() ⨁ {
-            $0.sourceType = .SavedPhotosAlbum
-            $0.mediaTypes = [kUTTypeMovie]
-            $0.videoQuality = .TypeHigh // TODO: Transcodes for some reason
-            $0.delegate = self
+    override func present(from source: UIViewController) {
+        source.presentViewController(UIImagePickerController() ⨁ self.configurePicker, animated: true) {
         }
+    }
+
+    private func configurePicker(vc: UIImagePickerController) {
+        vc.sourceType = .SavedPhotosAlbum
+        vc.mediaTypes = [kUTTypeMovie]
+        vc.videoQuality = .TypeHigh // TODO: Transcodes for some reason
+        vc.delegate = self
     }
 
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
@@ -44,5 +42,18 @@ class LibraryVideoSource: VideoSource, UIImagePickerControllerDelegate, UINaviga
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
         delegate?.selectionCompleted(source: self, URL: info[UIImagePickerControllerMediaURL] as? NSURL)
+    }
+}
+
+class DropboxVideoSource: VideoSource {
+    override func present(from source: UIViewController) {
+        
+        DBChooser.defaultChooser().openChooserForLinkType(DBChooserLinkTypeDirect, 
+            fromViewController: source) { results in
+                
+                let result = results.first as? DBChooserResult
+                self.delegate?.selectionCompleted(source: self, URL: result?.link)
+                
+        }
     }
 }
