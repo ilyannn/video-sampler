@@ -116,7 +116,7 @@ class SamplingOperation: NSOperation {
         
         stage = .Extract(0)        
         
-        AVAssetImageGenerator(asset: samplingAsset) +=+ {
+        AVAssetImageGenerator(asset: samplingAsset) ⨁ {
             $0.requestedTimeToleranceBefore = tolerance
             $0.requestedTimeToleranceAfter  = tolerance        
             $0.generateCGImagesAsynchronouslyForTimes(times, completionHandler: self.saveGeneratedImage)

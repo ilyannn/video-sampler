@@ -58,7 +58,7 @@ class SquareGridController: UIViewController {
             let col = index - row * gridSize
             let frame = CGRectMake(CGFloat(col) * width, CGFloat(row) * height, width, height)
             
-            view.addSubview(UIImageView(frame: frame) +=+ {
+            view.addSubview(UIImageView(frame: frame) ⨁ {
                 $0.image = image
                 $0.contentMode = .ScaleAspectFill
             })

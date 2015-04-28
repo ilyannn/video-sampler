@@ -52,7 +52,7 @@ extension ViewController {
     }
 
     @IBAction func changeTarget(sender: AnyObject) {
-        presentViewController(multipeerService.browserViewController() +=+ {
+        presentViewController(multipeerService.browserViewController() ⨁ {
             $0.delegate = self
         }, animated: true) {}
     }
@@ -93,7 +93,7 @@ extension ViewController: VideoSourceDelegate {
         samplingProgressView.hidden = false
         samplingProgressView.progress = 0
 
-        return SamplingOperation(parameters: samplingParameters, video: video) +=+ { sample in
+        return SamplingOperation(parameters: samplingParameters, video: video) ⨁ { sample in
 
             sample.totalProgress.addObserver(self, 
                 forKeyPath: "fractionCompleted", 

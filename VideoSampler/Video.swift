@@ -30,7 +30,7 @@ class VideoSource: NSObject {
 
 class LibraryVideoSource: VideoSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     private override func selectionViewController() -> UIViewController {
-        return UIImagePickerController() +=+ {
+        return UIImagePickerController() ⨁ {
             $0.sourceType = .SavedPhotosAlbum
             $0.mediaTypes = [kUTTypeMovie]
             $0.videoQuality = .TypeHigh // TODO: Transcodes for some reason
