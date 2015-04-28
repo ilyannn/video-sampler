@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		BA7B04451AEF899B0079BBA3 /* Sampling.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7B04441AEF899B0079BBA3 /* Sampling.swift */; };
 		BA7B04491AEF8E900079BBA3 /* Multipeer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7B04481AEF8E900079BBA3 /* Multipeer.swift */; };
+		BABE46951AEFA38D00EE6B79 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABE46941AEFA38D00EE6B79 /* Video.swift */; };
 		BAF08FEE1AEF7C960078F729 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF08FED1AEF7C960078F729 /* AppDelegate.swift */; };
 		BAF08FF01AEF7C960078F729 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF08FEF1AEF7C960078F729 /* ViewController.swift */; };
 		BAF08FF31AEF7C960078F729 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAF08FF11AEF7C960078F729 /* Main.storyboard */; };
@@ -30,6 +31,7 @@
 /* Begin PBXFileReference section */
 		BA7B04441AEF899B0079BBA3 /* Sampling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sampling.swift; sourceTree = "<group>"; };
 		BA7B04481AEF8E900079BBA3 /* Multipeer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Multipeer.swift; sourceTree = "<group>"; };
+		BABE46941AEFA38D00EE6B79 /* Video.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
 		BAF08FE81AEF7C960078F729 /* VideoSampler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VideoSampler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAF08FEC1AEF7C960078F729 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BAF08FED1AEF7C960078F729 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -65,6 +67,7 @@
 			children = (
 				BA7B04441AEF899B0079BBA3 /* Sampling.swift */,
 				BA7B04481AEF8E900079BBA3 /* Multipeer.swift */,
+				BABE46941AEFA38D00EE6B79 /* Video.swift */,
 			);
 			name = Logic;
 			sourceTree = "<group>";
@@ -238,6 +241,7 @@
 				BA7B04491AEF8E900079BBA3 /* Multipeer.swift in Sources */,
 				BAF08FEE1AEF7C960078F729 /* AppDelegate.swift in Sources */,
 				BA7B04451AEF899B0079BBA3 /* Sampling.swift in Sources */,
+				BABE46951AEFA38D00EE6B79 /* Video.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

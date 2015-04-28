@@ -9,6 +9,7 @@
 import UIKit
 import MultipeerConnectivity
 
+// MARK: Construction
 class ViewController: UIViewController {
 
     @IBOutlet weak var sizeStepper: UISlider!
@@ -18,18 +19,24 @@ class ViewController: UIViewController {
     @IBOutlet weak var overLabel: UILabel!
     
     @IBOutlet weak var targetButton: UIButton!
+    @IBOutlet weak var recordButton: UIButton!
         
     let multipeerService = MultipeerService()
-
+    let librarySourceUI = LibraryVideoSource()
+    
     /// User-selected values.
     var samplingParameters: SamplingParameters! 
     
     override func viewDidLoad() {
+        librarySourceUI.delegate = self
+        
         super.viewDidLoad()
         parametersUpdate(self)
     }
 }
 
+
+// MARK: - User actions
 extension ViewController {
     
     @IBAction func parametersUpdate(sender: AnyObject) {
@@ -47,8 +54,18 @@ extension ViewController {
         vc.delegate = self
         presentViewController(vc, animated: true) {}
     }
+        
+    @IBAction func openLibrary(sender: AnyObject) {
+        librarySourceUI.present(from: self)
+    }
+    
+    @IBAction func openDropbox(sender: AnyObject) {
+        // TODO: dropbox source
+    }
 }
 
+
+// MARK: - Delegates
 extension ViewController: MCBrowserViewControllerDelegate {
     func browserViewControllerDidFinish(vc: MCBrowserViewController!) {
         dismissViewControllerAnimated(true) {}
@@ -56,5 +73,12 @@ extension ViewController: MCBrowserViewControllerDelegate {
     
     func browserViewControllerWasCancelled(vc: MCBrowserViewController!) {
         dismissViewControllerAnimated(true) {}
+    }
+}
+
+extension ViewController: VideoSourceDelegate {
+    func selectionCompleted(#source: VideoSource, URL: NSURL?) {
+        dismissViewControllerAnimated(true) {}
+        println(URL)
     }
 }
