@@ -20,7 +20,9 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var targetButton: UIButton!
     @IBOutlet weak var recordButton: UIButton!
-        
+    
+    @IBOutlet weak var samplingProgressView: UIProgressView!
+    
     let multipeerService = MultipeerService()
     let librarySourceUI = LibraryVideoSource()
     
@@ -81,8 +83,41 @@ private let SamplingQueue = NSOperationQueue()
 extension ViewController: VideoSourceDelegate {
     func selectionCompleted(#source: VideoSource, URL: NSURL?) {
         dismissViewControllerAnimated(true) {}
+        
         if let video = URL {
-            SamplingQueue.addOperation(SamplingOperation(parameters: samplingParameters, video: video))
+            let sample = prepareSamplingOperation(video)
+            SamplingQueue.addOperation(sample)
+        }
+    }
+    
+    func prepareSamplingOperation(video: NSURL) -> SamplingOperation {
+        let sample = SamplingOperation(parameters: samplingParameters, video: video)
+        
+        samplingProgressView.hidden = false
+        samplingProgressView.progress = 0
+        
+        sample.totalProgress.addObserver(self, 
+            forKeyPath: "fractionCompleted", 
+               options: .New, 
+            context: nil)
+        
+        sample.completionBlock = { 
+            dispatch_async(dispatch_get_main_queue()) {
+                let grid = SquareGridController(images: sample.sampleImages)
+                self.presentViewController(grid, animated: true) {}
+            }
+        }
+        
+        return sample
+    }
+    
+    override func observeValueForKeyPath(keyPath: String, 
+        ofObject object: AnyObject, 
+        change: [NSObject : AnyObject], 
+        context: UnsafeMutablePointer<Void>) 
+    {
+        if let progress = object as? NSProgress {
+            samplingProgressView.progress = Float(progress.fractionCompleted)
         }
     }
 }

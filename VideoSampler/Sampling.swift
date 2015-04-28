@@ -6,7 +6,9 @@
 //  Copyright (c) 2015 ilya n. All rights reserved.
 //
 
+import UIKit
 import AVFoundation
+import CoreImage
 
 class SamplingParameters {
 
@@ -55,7 +57,12 @@ class SamplingOperation: NSOperation {
     let samplingParameters: SamplingParameters
     let samplingAsset: AVAsset
     let assetSize: Int64?
-    var sampleImages: [CGImage] = []
+    
+    let totalProgress: NSProgress
+    let extractProgress: NSProgress
+    let dropProgress: NSProgress
+    
+    private(set) var sampleImages: [UIImage] = []
     
     enum Stage {
         case Initial
@@ -69,16 +76,27 @@ class SamplingOperation: NSOperation {
     init(parameters: SamplingParameters, video: NSURL) {
         samplingParameters = parameters
         samplingAsset = AVURLAsset(URL: video, options: [:])
+        
         if let path = video.path {
             let attrs = NSFileManager.defaultManager().attributesOfItemAtPath(path, error: nil)!
             assetSize = (attrs[NSFileSize] as? NSNumber)?.longLongValue
         } else {
             assetSize = nil
         }
+        
+        let total = NSProgress()
+        totalProgress = total
+        extractProgress = NSProgress(parent: total, userInfo: nil)
+        dropProgress = NSProgress(parent: total, userInfo: nil)
+        
+        super.init()
+        
+        extractProgress.totalUnitCount = Int64(samplingParameters.initialSamples)
+        dropProgress.totalUnitCount = Int64(samplingParameters.overSamples)
     }
     
     override var asynchronous: Bool { 
-        return true 
+        return true
     }
     
     override var finished: Bool {
@@ -118,7 +136,9 @@ class SamplingOperation: NSOperation {
         case .Extract(var count): 
             if let valid = image {
                 stage = .Extract(++count)
-                sampleImages += [valid]
+                let image = UIImage(CGImage: valid)
+                sampleImages.append(image!)
+                extractProgress.completedUnitCount = Int64(count)
             }
             if count == samplingParameters.initialSamples {
                 dropImages()
@@ -130,9 +150,10 @@ class SamplingOperation: NSOperation {
     func dropImages() {
         stage = .Drop(0)
 //        sampleImages.removeLast()
-        willChangeValueForKey("completed")
+        willChangeValueForKey("isFinished")
         stage = .Completed
-        didChangeValueForKey("completed")
+        dropProgress.completedUnitCount = dropProgress.totalUnitCount
+        didChangeValueForKey("isFinished")        
     }
     
 }

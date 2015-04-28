@@ -133,11 +133,16 @@
                                             <action selector="openDropbox:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Fuz-Md-GOm"/>
                                         </connections>
                                     </button>
+                                    <progressView hidden="YES" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2d2-1Z-g2x">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="2"/>
+                                    </progressView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="218" id="5SS-f4-g2r"/>
+                                    <constraint firstAttribute="trailing" secondItem="2d2-1Z-g2x" secondAttribute="trailing" id="B9H-nO-OtO"/>
+                                    <constraint firstItem="2d2-1Z-g2x" firstAttribute="leading" secondItem="HDa-Vs-ZVe" secondAttribute="leading" id="DQ3-9i-UjK"/>
                                     <constraint firstItem="M6h-w8-hag" firstAttribute="leading" secondItem="jTU-Ex-X0b" secondAttribute="trailing" constant="28" id="Eqv-JR-Bbi"/>
                                     <constraint firstItem="jTU-Ex-X0b" firstAttribute="leading" secondItem="HDa-Vs-ZVe" secondAttribute="leading" constant="18" id="NbR-sV-cEu"/>
                                     <constraint firstItem="jTU-Ex-X0b" firstAttribute="top" secondItem="HDa-Vs-ZVe" secondAttribute="top" constant="10" id="Uu2-ga-YFL"/>
@@ -146,6 +151,7 @@
                                     <constraint firstAttribute="trailing" secondItem="M6h-w8-hag" secondAttribute="trailing" constant="8" id="dn9-jZ-vFN"/>
                                     <constraint firstItem="M6h-w8-hag" firstAttribute="top" secondItem="jTU-Ex-X0b" secondAttribute="top" id="p1F-X6-kch"/>
                                     <constraint firstItem="M6h-w8-hag" firstAttribute="width" secondItem="jTU-Ex-X0b" secondAttribute="width" id="uvE-Xg-ow2"/>
+                                    <constraint firstItem="jTU-Ex-X0b" firstAttribute="top" secondItem="2d2-1Z-g2x" secondAttribute="bottom" constant="8" symbolic="YES" id="xdk-yR-X8R"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -184,6 +190,7 @@
                     <connections>
                         <outlet property="overLabel" destination="gjy-pL-AwG" id="ZUT-E5-hkY"/>
                         <outlet property="overStepper" destination="Hs9-tv-EgR" id="VEY-yZ-ELc"/>
+                        <outlet property="samplingProgressView" destination="2d2-1Z-g2x" id="eub-Ua-Sri"/>
                         <outlet property="sizeLabel" destination="tDp-QY-IxK" id="1nY-SN-oJg"/>
                         <outlet property="sizeStepper" destination="pnu-hn-PvQ" id="wrC-SN-kUn"/>
                         <outlet property="targetButton" destination="XgA-WR-mhF" id="Cg7-8O-jji"/>
