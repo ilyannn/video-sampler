@@ -85,27 +85,26 @@ extension ViewController: VideoSourceDelegate {
         dismissViewControllerAnimated(true) {}
         
         if let video = URL {
-            let sample = prepareSamplingOperation(video)
-            SamplingQueue.addOperation(sample)
+            SamplingQueue.addOperation(prepareSamplingOperation(video))
         }
     }
     
     func prepareSamplingOperation(video: NSURL) -> SamplingOperation {
-        let sample = SamplingOperation(parameters: samplingParameters, video: video)
-        
         samplingProgressView.hidden = false
         samplingProgressView.progress = 0
-        
-        sample.totalProgress.addObserver(self, 
-            forKeyPath: "fractionCompleted", 
-               options: .New, 
-            context: nil)
-        
-        sample.completionBlock = ⬆︎{
-            self.presentViewController(SquareGridController(images: sample.sampleImages), animated: true) {}
-        } 
-        
-        return sample
+
+        return SamplingOperation(parameters: samplingParameters, video: video) +=+ { sample in
+
+            sample.totalProgress.addObserver(self, 
+                forKeyPath: "fractionCompleted", 
+                options: .New, 
+                context: nil)
+            
+            sample.completionBlock = ⬆︎{
+                self.presentViewController(SquareGridController(images: sample.sampleImages), animated: true) {}
+            } 
+
+        }
     }
     
     override func observeValueForKeyPath(keyPath: String, 

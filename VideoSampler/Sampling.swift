@@ -109,7 +109,6 @@ class SamplingOperation: NSOperation {
             println("file size is \(Float(asset_size) / mega) MB")
         }
         
-        let generator = AVAssetImageGenerator(asset: samplingAsset)
         let times = samplingParameters.spacedTime(duration: samplingAsset.duration)
         
         var tolerance = times[0].CMTimeValue
@@ -117,9 +116,11 @@ class SamplingOperation: NSOperation {
         
         stage = .Extract(0)        
         
-        generator.requestedTimeToleranceBefore = tolerance
-        generator.requestedTimeToleranceAfter  = tolerance        
-        generator.generateCGImagesAsynchronouslyForTimes(times, completionHandler: self.saveGeneratedImage)
+        AVAssetImageGenerator(asset: samplingAsset) +=+ {
+            $0.requestedTimeToleranceBefore = tolerance
+            $0.requestedTimeToleranceAfter  = tolerance        
+            $0.generateCGImagesAsynchronouslyForTimes(times, completionHandler: self.saveGeneratedImage)
+        }
     }    
     
     func saveGeneratedImage(requested: CMTime, image: CGImage?, actual: CMTime, result: AVAssetImageGeneratorResult, error: NSError?) {
@@ -128,8 +129,7 @@ class SamplingOperation: NSOperation {
         case .Extract(var count): 
             if let valid = image {
                 stage = .Extract(++count)
-                let image = UIImage(CGImage: valid)
-                sampleImages.append(image!)
+                sampleImages.append(UIImage(CGImage: valid)!)
                 totalProgress.completedUnitCount = Int64(count)
             }
             if count == samplingParameters.initialSamples {
