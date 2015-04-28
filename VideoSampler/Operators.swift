@@ -22,13 +22,6 @@ func ⬆︎<T>(block: T -> (), args:T) {
 }
 
 
-infix operator ⬆︎= { } 
-
-func ⬆︎=<T>(inout lhs: T, rhs:T) {
-    {lhs = rhs} ⬆︎ ()
-}
-
-
 // MARK: Configure an object
 // Example (assuming you have a class Point): Point() ⨁ { $0.x = 10; $0.y = 12 }
 infix operator  ⨁ { associativity left }

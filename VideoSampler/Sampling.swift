@@ -140,11 +140,16 @@ class SamplingOperation: NSOperation {
     }
 
     func dropImages() {
-        stage = .Drop(0)
-//        sampleImages.removeLast()
+        for drop in 0..<samplingParameters.overSamples {
+            stage = .Drop(drop)
+            let remove = Int(arc4random_uniform(UInt32(sampleImages.count)))
+            sampleImages.removeAtIndex(remove)
+            totalProgress.completedUnitCount++
+        }
+        
         willChangeValueForKey("isFinished")
         stage = .Completed
-        totalProgress.completedUnitCount = totalProgress.totalUnitCount
+        assert(totalProgress.completedUnitCount == totalProgress.totalUnitCount)
         didChangeValueForKey("isFinished")        
     }
     

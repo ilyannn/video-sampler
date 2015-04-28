@@ -97,8 +97,8 @@ extension ViewController: VideoSourceDelegate {
 
             sample.totalProgress.addObserver(self, 
                 forKeyPath: "fractionCompleted", 
-                options: .New, 
-                context: nil)
+                   options: .New, 
+                   context: nil)
             
             sample.completionBlock = ⬆︎{
                 self.presentViewController(SquareGridController(images: sample.sampleImages), animated: true) {}
@@ -113,7 +113,7 @@ extension ViewController: VideoSourceDelegate {
         context: UnsafeMutablePointer<Void>) 
     {
         if let progress = object as? NSProgress { 
-            samplingProgressView.progress ⬆︎= Float(progress.fractionCompleted)
+            samplingProgressView.setProgress ⬆︎ (Float(progress.fractionCompleted), true)
         }
     }
     
