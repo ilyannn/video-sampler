@@ -12,6 +12,8 @@
 		BABE46951AEFA38D00EE6B79 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABE46941AEFA38D00EE6B79 /* Video.swift */; };
 		BABE46971AEFAD2300EE6B79 /* SquareGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABE46961AEFAD2300EE6B79 /* SquareGrid.swift */; };
 		BABE46991AF009F400EE6B79 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABE46981AF009F400EE6B79 /* Operators.swift */; };
+		BABE469C1AF0177500EE6B79 /* DBChooser.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BABE469A1AF0177500EE6B79 /* DBChooser.bundle */; };
+		BABE469D1AF0177500EE6B79 /* DBChooser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BABE469B1AF0177500EE6B79 /* DBChooser.framework */; };
 		BAF08FEE1AEF7C960078F729 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF08FED1AEF7C960078F729 /* AppDelegate.swift */; };
 		BAF08FF01AEF7C960078F729 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF08FEF1AEF7C960078F729 /* ViewController.swift */; };
 		BAF08FF31AEF7C960078F729 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAF08FF11AEF7C960078F729 /* Main.storyboard */; };
@@ -36,6 +38,8 @@
 		BABE46941AEFA38D00EE6B79 /* Video.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
 		BABE46961AEFAD2300EE6B79 /* SquareGrid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SquareGrid.swift; sourceTree = "<group>"; };
 		BABE46981AF009F400EE6B79 /* Operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
+		BABE469A1AF0177500EE6B79 /* DBChooser.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = DBChooser.bundle; sourceTree = "<group>"; };
+		BABE469B1AF0177500EE6B79 /* DBChooser.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DBChooser.framework; sourceTree = "<group>"; };
 		BAF08FE81AEF7C960078F729 /* VideoSampler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VideoSampler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAF08FEC1AEF7C960078F729 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BAF08FED1AEF7C960078F729 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -53,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BABE469D1AF0177500EE6B79 /* DBChooser.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,6 +93,15 @@
 			name = UI;
 			sourceTree = "<group>";
 		};
+		BABE469E1AF0177B00EE6B79 /* Third-party */ = {
+			isa = PBXGroup;
+			children = (
+				BABE469A1AF0177500EE6B79 /* DBChooser.bundle */,
+				BABE469B1AF0177500EE6B79 /* DBChooser.framework */,
+			);
+			name = "Third-party";
+			sourceTree = "<group>";
+		};
 		BAF08FDF1AEF7C960078F729 = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +123,7 @@
 		BAF08FEA1AEF7C960078F729 /* VideoSampler */ = {
 			isa = PBXGroup;
 			children = (
+				BABE469E1AF0177B00EE6B79 /* Third-party */,
 				BA7B04461AEF8E030079BBA3 /* Logic */,
 				BA7B04471AEF8E140079BBA3 /* UI */,
 				BAF08FED1AEF7C960078F729 /* AppDelegate.swift */,
@@ -224,6 +239,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BAF08FF31AEF7C960078F729 /* Main.storyboard in Resources */,
+				BABE469C1AF0177500EE6B79 /* DBChooser.bundle in Resources */,
 				BAF08FF81AEF7C960078F729 /* LaunchScreen.xib in Resources */,
 				BAF08FF51AEF7C960078F729 /* Images.xcassets in Resources */,
 			);
@@ -378,6 +394,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/VideoSampler",
+				);
 				INFOPLIST_FILE = VideoSampler/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -388,6 +408,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/VideoSampler",
+				);
 				INFOPLIST_FILE = VideoSampler/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
