@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -82,11 +83,26 @@
                                     <constraint firstItem="Hs9-tv-EgR" firstAttribute="leading" secondItem="8Bn-67-m4R" secondAttribute="leading" constant="8" id="v59-h8-XbD"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XgA-WR-mhF">
+                                <rect key="frame" x="345" y="273" width="229" height="102"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="XgA-WR-mhF" secondAttribute="height" multiplier="229:102" id="HIM-rb-0gt"/>
+                                    <constraint firstAttribute="width" constant="229" id="rs2-S5-0pv"/>
+                                </constraints>
+                                <state key="normal" title="Target">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="changeTarget:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AM1-Pt-ChT"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="XgA-WR-mhF" secondAttribute="trailing" constant="10" id="8me-p8-xFA"/>
                             <constraint firstItem="8Bn-67-m4R" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="28" id="Gae-fa-Y84"/>
                             <constraint firstAttribute="trailingMargin" secondItem="8Bn-67-m4R" secondAttribute="trailing" id="HYi-Sb-p23"/>
+                            <constraint firstItem="XgA-WR-mhF" firstAttribute="top" secondItem="8Bn-67-m4R" secondAttribute="bottom" constant="8" id="eRI-Pp-0g2"/>
                             <constraint firstItem="8Bn-67-m4R" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="iwJ-QG-0Wb"/>
                             <constraint firstAttribute="trailing" secondItem="8Bn-67-m4R" secondAttribute="trailing" id="key-57-Ilj"/>
                         </constraints>
@@ -101,6 +117,7 @@
                         <outlet property="overStepper" destination="Hs9-tv-EgR" id="VEY-yZ-ELc"/>
                         <outlet property="sizeLabel" destination="tDp-QY-IxK" id="1nY-SN-oJg"/>
                         <outlet property="sizeStepper" destination="pnu-hn-PvQ" id="wrC-SN-kUn"/>
+                        <outlet property="targetButton" destination="XgA-WR-mhF" id="Cg7-8O-jji"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

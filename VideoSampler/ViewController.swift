@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MultipeerConnectivity
 
 class ViewController: UIViewController {
 
@@ -15,7 +16,11 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var sizeLabel: UILabel!
     @IBOutlet weak var overLabel: UILabel!
+    
+    @IBOutlet weak var targetButton: UIButton!
         
+    let multipeerService = MultipeerService()
+
     /// User-selected values.
     var samplingParameters: SamplingParameters! 
     
@@ -37,4 +42,19 @@ extension ViewController {
         overLabel.text = over == 0 ? "no" : "+\(over)"
     }
 
+    @IBAction func changeTarget(sender: AnyObject) {
+        let vc = multipeerService.browserViewController()
+        vc.delegate = self
+        presentViewController(vc, animated: true) {}
+    }
+}
+
+extension ViewController: MCBrowserViewControllerDelegate {
+    func browserViewControllerDidFinish(vc: MCBrowserViewController!) {
+        dismissViewControllerAnimated(true) {}
+    }
+    
+    func browserViewControllerWasCancelled(vc: MCBrowserViewController!) {
+        dismissViewControllerAnimated(true) {}
+    }
 }
