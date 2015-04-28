@@ -10,9 +10,13 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var sizeStepper: UISlider!
+    @IBOutlet weak var sizeLabel: UILabel!
+    var sizeStepperValue = 0
+        
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        sizeUpdate(self)
     }
 
     override func didReceiveMemoryWarning() {
@@ -20,6 +24,14 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
 }
 
+extension ViewController {
+    
+    @IBAction func sizeUpdate(sender: AnyObject) {
+        let value = Int(sizeStepper.value + 0.5)
+        sizeStepperValue = value
+        sizeLabel.text = "\(value * value)"
+    }
+
+}
