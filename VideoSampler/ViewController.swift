@@ -83,9 +83,22 @@ extension ViewController: MCBrowserViewControllerDelegate {
 
 extension ViewController: MultipeerServiceDelegate {
     func collectionCompleted(collection: ImageCollection, by: MultipeerService) {
-        presentViewController(SquareGridController(collection: collection), animated: true) {}
+        presentViewController ⬆︎ (SquareGridController(collection: collection), true, {})
     }
 }
+
+extension ViewController { // Key-Value Observing
+    
+    override func observeValueForKeyPath(keyPath: String, 
+        ofObject object: AnyObject, 
+        change: [NSObject : AnyObject], 
+        context: UnsafeMutablePointer<Void>) 
+    {
+        if let progress = object as? NSProgress { 
+            samplingProgressView.setProgress ⬆︎ (Float(progress.fractionCompleted), true)
+        }
+    }
+}    
 
 
 // MARK: - Sampling Operation
@@ -101,18 +114,7 @@ extension ViewController: VideoSourceDelegate {
             
             SamplingQueue.addOperations(prepareSamplingOperations(video), waitUntilFinished: false)
         }
-    }
-        
-    override func observeValueForKeyPath(keyPath: String, 
-        ofObject object: AnyObject, 
-        change: [NSObject : AnyObject], 
-        context: UnsafeMutablePointer<Void>) 
-    {
-        if let progress = object as? NSProgress { 
-            samplingProgressView.setProgress ⬆︎ (Float(progress.fractionCompleted), true)
-        }
-    }
-
+    }        
 }
 
 extension ViewController {

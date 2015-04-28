@@ -10,6 +10,7 @@ import UIKit
 import AVFoundation
 import CoreImage
 
+// MARK: Parameters
 class SamplingParameters {
 
     let initialSamples: Int
@@ -53,6 +54,7 @@ extension Float {
     }
 }
 
+// MARK: Operation
 class SamplingOperation: NSOperation {
     let samplingParameters: SamplingParameters
     let samplingAsset: AVAsset
@@ -122,7 +124,11 @@ class SamplingOperation: NSOperation {
             $0.generateCGImagesAsynchronouslyForTimes(times, completionHandler: self.saveGeneratedImage)
         }
     }    
-    
+
+}
+
+// MARK: Hard stuff
+extension SamplingOperation {
     func saveGeneratedImage(requested: CMTime, image: CGImage?, actual: CMTime, result: AVAssetImageGeneratorResult, error: NSError?) {
         println("found image \(NSValue(CMTime:requested)) -> \(NSValue(CMTime:actual))")
         switch (stage) {
