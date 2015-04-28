@@ -49,9 +49,8 @@ class DropboxVideoSource: VideoSource {
     override func present(from source: UIViewController) {
         
         DBChooser.defaultChooser().openChooserForLinkType(DBChooserLinkTypeDirect, 
-            fromViewController: source) { results in
-                
-                let result = results.first as? DBChooserResult
+            fromViewController: source) { (results: [AnyObject]?) in
+                let result = results?.first as? DBChooserResult
                 self.delegate?.selectionCompleted(source: self, URL: result?.link)
                 
         }
