@@ -25,8 +25,7 @@ class VideoSource: NSObject {
 
 class LibraryVideoSource: VideoSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     override func present(from source: UIViewController) {
-        source.presentViewController(UIImagePickerController() ⨁ self.configurePicker, animated: true) {
-        }
+        source.presentViewController(UIImagePickerController() ⨁ self.configurePicker, animated: true) {}
     }
 
     private func configurePicker(vc: UIImagePickerController) {
@@ -56,3 +55,4 @@ class DropboxVideoSource: VideoSource {
         }
     }
 }
+

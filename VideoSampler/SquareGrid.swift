@@ -61,6 +61,8 @@ class SquareGridController: UIViewController {
             view.addSubview(UIImageView(frame: frame) ⨁ {
                 $0.image = image
                 $0.contentMode = .ScaleAspectFill
+                $0.clipsToBounds = true
+                $0.opaque = true
             })
         }
     }

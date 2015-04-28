@@ -9,7 +9,8 @@
 /* Begin PBXBuildFile section */
 		BA7B04451AEF899B0079BBA3 /* Sampling.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7B04441AEF899B0079BBA3 /* Sampling.swift */; };
 		BA7B04491AEF8E900079BBA3 /* Multipeer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7B04481AEF8E900079BBA3 /* Multipeer.swift */; };
-		BABE46951AEFA38D00EE6B79 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABE46941AEFA38D00EE6B79 /* Video.swift */; };
+		BAB02E4B1AF0364200A0CDF1 /* Video (Targets).swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB02E4A1AF0364200A0CDF1 /* Video (Targets).swift */; };
+		BABE46951AEFA38D00EE6B79 /* Video (Sources).swift in Sources */ = {isa = PBXBuildFile; fileRef = BABE46941AEFA38D00EE6B79 /* Video (Sources).swift */; };
 		BABE46971AEFAD2300EE6B79 /* SquareGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABE46961AEFAD2300EE6B79 /* SquareGrid.swift */; };
 		BABE46991AF009F400EE6B79 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABE46981AF009F400EE6B79 /* Operators.swift */; };
 		BABE469C1AF0177500EE6B79 /* DBChooser.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BABE469A1AF0177500EE6B79 /* DBChooser.bundle */; };
@@ -35,7 +36,8 @@
 /* Begin PBXFileReference section */
 		BA7B04441AEF899B0079BBA3 /* Sampling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sampling.swift; sourceTree = "<group>"; };
 		BA7B04481AEF8E900079BBA3 /* Multipeer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Multipeer.swift; sourceTree = "<group>"; };
-		BABE46941AEFA38D00EE6B79 /* Video.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
+		BAB02E4A1AF0364200A0CDF1 /* Video (Targets).swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Video (Targets).swift"; sourceTree = "<group>"; };
+		BABE46941AEFA38D00EE6B79 /* Video (Sources).swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Video (Sources).swift"; sourceTree = "<group>"; };
 		BABE46961AEFAD2300EE6B79 /* SquareGrid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SquareGrid.swift; sourceTree = "<group>"; };
 		BABE46981AF009F400EE6B79 /* Operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
 		BABE469A1AF0177500EE6B79 /* DBChooser.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = DBChooser.bundle; sourceTree = "<group>"; };
@@ -78,8 +80,6 @@
 				BABE469F1AF0189100EE6B79 /* VideoSampler-Bridging-Header.h */,
 				BABE46981AF009F400EE6B79 /* Operators.swift */,
 				BA7B04441AEF899B0079BBA3 /* Sampling.swift */,
-				BA7B04481AEF8E900079BBA3 /* Multipeer.swift */,
-				BABE46941AEFA38D00EE6B79 /* Video.swift */,
 			);
 			name = Logic;
 			sourceTree = "<group>";
@@ -93,6 +93,16 @@
 				BABE46961AEFAD2300EE6B79 /* SquareGrid.swift */,
 			);
 			name = UI;
+			sourceTree = "<group>";
+		};
+		BAB02E4C1AF0369900A0CDF1 /* Processing */ = {
+			isa = PBXGroup;
+			children = (
+				BA7B04481AEF8E900079BBA3 /* Multipeer.swift */,
+				BABE46941AEFA38D00EE6B79 /* Video (Sources).swift */,
+				BAB02E4A1AF0364200A0CDF1 /* Video (Targets).swift */,
+			);
+			name = Processing;
 			sourceTree = "<group>";
 		};
 		BABE469E1AF0177B00EE6B79 /* Third-party */ = {
@@ -127,6 +137,7 @@
 			children = (
 				BABE469E1AF0177B00EE6B79 /* Third-party */,
 				BA7B04461AEF8E030079BBA3 /* Logic */,
+				BAB02E4C1AF0369900A0CDF1 /* Processing */,
 				BA7B04471AEF8E140079BBA3 /* UI */,
 				BAF08FED1AEF7C960078F729 /* AppDelegate.swift */,
 				BAF08FEB1AEF7C960078F729 /* Supporting Files */,
@@ -263,11 +274,12 @@
 			files = (
 				BAF08FF01AEF7C960078F729 /* ViewController.swift in Sources */,
 				BA7B04491AEF8E900079BBA3 /* Multipeer.swift in Sources */,
+				BAB02E4B1AF0364200A0CDF1 /* Video (Targets).swift in Sources */,
 				BABE46991AF009F400EE6B79 /* Operators.swift in Sources */,
 				BABE46971AEFAD2300EE6B79 /* SquareGrid.swift in Sources */,
 				BAF08FEE1AEF7C960078F729 /* AppDelegate.swift in Sources */,
 				BA7B04451AEF899B0079BBA3 /* Sampling.swift in Sources */,
-				BABE46951AEFA38D00EE6B79 /* Video.swift in Sources */,
+				BABE46951AEFA38D00EE6B79 /* Video (Sources).swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

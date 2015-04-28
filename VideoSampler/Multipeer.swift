@@ -30,6 +30,21 @@ class MultipeerService: NSObject {
     func browserViewController() -> MCBrowserViewController {
         return MCBrowserViewController(serviceType: ServiceType, session: multiSession)
     }
+    
+    // Use @autoclosure to avoid costly data creation is not necessary
+    func send(@autoclosure data factory: ()-> NSData) {
+        let peers = multiSession.connectedPeers
+        if peers.count == 0 {
+            return
+        }
+        
+        let data = factory()
+        var error: NSError?
+        multiSession.sendData(data, toPeers: peers, withMode: .Reliable, error: &error)
+        if let problem = error {
+            println("Problem sending data: \(problem)")
+        }
+    }
 }
 
 
@@ -47,7 +62,7 @@ extension MultipeerService: MCSessionDelegate {
     }
     
     func session(session: MCSession!, didReceiveData data: NSData!, fromPeer peerID: MCPeerID!) {
-        
+        println("Received \(data.length) bytes of data from \(peerID.displayName)")
     }
     
     func session(session: MCSession!, didReceiveStream stream: NSInputStream!, withName streamName: String!, fromPeer peerID: MCPeerID!) {
