@@ -11,27 +11,30 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var sizeStepper: UISlider!
+    @IBOutlet weak var overStepper: UISlider!
+
     @IBOutlet weak var sizeLabel: UILabel!
-    var sizeStepperValue = 0
+    @IBOutlet weak var overLabel: UILabel!
         
+    /// User-selected values.
+    var samplingParameters: SamplingParameters! 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        sizeUpdate(self)
+        parametersUpdate(self)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
 }
 
 extension ViewController {
     
-    @IBAction func sizeUpdate(sender: AnyObject) {
-        let value = Int(sizeStepper.value + 0.5)
-        sizeStepperValue = value
-        sizeLabel.text = "\(value * value)"
+    @IBAction func parametersUpdate(sender: AnyObject) {
+        let size = Int(sizeStepper.value + 0.5)        
+        samplingParameters = SquareParameters(edge: size, over: overStepper.value)
+        
+        sizeLabel.text = "\(samplingParameters.finalSamples)"
+
+        let over = samplingParameters.overSamples
+        overLabel.text = over == 0 ? "no" : "+\(over)"
     }
 
 }

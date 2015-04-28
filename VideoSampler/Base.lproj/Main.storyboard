@@ -18,18 +18,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Bn-67-m4R" userLabel="Parameters View">
-                                <rect key="frame" x="16" y="48" width="584" height="72"/>
+                                <rect key="frame" x="16" y="48" width="584" height="217"/>
                                 <subviews>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="3" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="pnu-hn-PvQ">
                                         <rect key="frame" x="6" y="22" width="495" height="31"/>
                                         <connections>
-                                            <action selector="sizeUpdate:" destination="BYZ-38-t0r" eventType="valueChanged" id="pvQ-5m-ral"/>
+                                            <action selector="parametersUpdate:" destination="BYZ-38-t0r" eventType="valueChanged" id="Pm0-tM-ZLb"/>
                                         </connections>
                                     </slider>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sample size" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vTX-pe-5S6">
                                         <rect key="frame" x="8" y="0.0" width="63" height="14"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tDp-QY-IxK">
@@ -38,20 +38,48 @@
                                             <constraint firstAttribute="width" constant="77" id="Mhg-Vm-Qcx"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="26"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="3" translatesAutoresizingMaskIntoConstraints="NO" id="Hs9-tv-EgR">
+                                        <rect key="frame" x="6" y="79" width="495" height="31"/>
+                                        <connections>
+                                            <action selector="parametersUpdate:" destination="BYZ-38-t0r" eventType="valueChanged" id="1ax-XC-hys"/>
+                                        </connections>
+                                    </slider>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Oversample" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VOI-vC-pCG">
+                                        <rect key="frame" x="8" y="57" width="62" height="14"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gjy-pL-AwG">
+                                        <rect key="frame" x="499" y="78" width="77" height="31"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="77" id="FYY-bR-JbE"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="26"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="Hs9-tv-EgR" firstAttribute="centerY" secondItem="gjy-pL-AwG" secondAttribute="centerY" id="2uY-tF-mnO"/>
                                     <constraint firstItem="vTX-pe-5S6" firstAttribute="top" secondItem="8Bn-67-m4R" secondAttribute="top" id="46n-e6-Drn"/>
+                                    <constraint firstAttribute="trailing" secondItem="gjy-pL-AwG" secondAttribute="trailing" constant="8" id="6NI-as-51W"/>
                                     <constraint firstItem="pnu-hn-PvQ" firstAttribute="leading" secondItem="8Bn-67-m4R" secondAttribute="leading" constant="8" id="F57-Pz-Rd7"/>
                                     <constraint firstItem="tDp-QY-IxK" firstAttribute="leading" secondItem="pnu-hn-PvQ" secondAttribute="trailing" id="NZx-yH-oBG"/>
                                     <constraint firstItem="pnu-hn-PvQ" firstAttribute="top" secondItem="vTX-pe-5S6" secondAttribute="bottom" constant="8" id="O0p-sK-5W8"/>
+                                    <constraint firstItem="VOI-vC-pCG" firstAttribute="leading" secondItem="8Bn-67-m4R" secondAttribute="leading" constant="8" id="PDv-ad-bKG"/>
+                                    <constraint firstAttribute="bottom" secondItem="Hs9-tv-EgR" secondAttribute="bottom" constant="108" id="RRP-aI-MuV"/>
+                                    <constraint firstItem="gjy-pL-AwG" firstAttribute="leading" secondItem="Hs9-tv-EgR" secondAttribute="trailing" id="W12-6h-YhN"/>
                                     <constraint firstItem="pnu-hn-PvQ" firstAttribute="centerY" secondItem="tDp-QY-IxK" secondAttribute="centerY" id="Y9R-tP-eaU"/>
+                                    <constraint firstItem="Hs9-tv-EgR" firstAttribute="top" secondItem="VOI-vC-pCG" secondAttribute="bottom" constant="8" id="e3u-md-VaP"/>
                                     <constraint firstAttribute="trailing" secondItem="tDp-QY-IxK" secondAttribute="trailing" constant="8" id="eP5-VS-dTj"/>
-                                    <constraint firstAttribute="bottom" secondItem="tDp-QY-IxK" secondAttribute="bottom" constant="19" id="o53-bZ-BCU"/>
+                                    <constraint firstItem="VOI-vC-pCG" firstAttribute="top" secondItem="pnu-hn-PvQ" secondAttribute="bottom" constant="5" id="iHY-5U-71p"/>
                                     <constraint firstItem="vTX-pe-5S6" firstAttribute="leading" secondItem="8Bn-67-m4R" secondAttribute="leading" constant="8" id="rxk-5F-Reb"/>
+                                    <constraint firstItem="Hs9-tv-EgR" firstAttribute="leading" secondItem="8Bn-67-m4R" secondAttribute="leading" constant="8" id="v59-h8-XbD"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -69,12 +97,15 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="overLabel" destination="gjy-pL-AwG" id="ZUT-E5-hkY"/>
+                        <outlet property="overStepper" destination="Hs9-tv-EgR" id="VEY-yZ-ELc"/>
                         <outlet property="sizeLabel" destination="tDp-QY-IxK" id="1nY-SN-oJg"/>
                         <outlet property="sizeStepper" destination="pnu-hn-PvQ" id="wrC-SN-kUn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="138" y="343"/>
         </scene>
     </scenes>
 </document>
