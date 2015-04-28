@@ -52,9 +52,9 @@ extension ViewController {
     }
 
     @IBAction func changeTarget(sender: AnyObject) {
-        let vc = multipeerService.browserViewController()
-        vc.delegate = self
-        presentViewController(vc, animated: true) {}
+        presentViewController(multipeerService.browserViewController() +=+ {
+            $0.delegate = self
+        }, animated: true) {}
     }
         
     @IBAction func openLibrary(sender: AnyObject) {
@@ -101,12 +101,9 @@ extension ViewController: VideoSourceDelegate {
                options: .New, 
             context: nil)
         
-        sample.completionBlock = { 
-            dispatch_async(dispatch_get_main_queue()) {
-                let grid = SquareGridController(images: sample.sampleImages)
-                self.presentViewController(grid, animated: true) {}
-            }
-        }
+        sample.completionBlock = ⬆︎{
+            self.presentViewController(SquareGridController(images: sample.sampleImages), animated: true) {}
+        } 
         
         return sample
     }
@@ -116,8 +113,9 @@ extension ViewController: VideoSourceDelegate {
         change: [NSObject : AnyObject], 
         context: UnsafeMutablePointer<Void>) 
     {
-        if let progress = object as? NSProgress {
-            samplingProgressView.progress = Float(progress.fractionCompleted)
+        if let progress = object as? NSProgress { 
+            samplingProgressView.progress ⬆︎= Float(progress.fractionCompleted)
         }
     }
+    
 }

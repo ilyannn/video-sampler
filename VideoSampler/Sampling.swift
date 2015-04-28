@@ -59,8 +59,6 @@ class SamplingOperation: NSOperation {
     let assetSize: Int64?
     
     let totalProgress: NSProgress
-    let extractProgress: NSProgress
-    let dropProgress: NSProgress
     
     private(set) var sampleImages: [UIImage] = []
     
@@ -84,15 +82,9 @@ class SamplingOperation: NSOperation {
             assetSize = nil
         }
         
-        let total = NSProgress()
-        totalProgress = total
-        extractProgress = NSProgress(parent: total, userInfo: nil)
-        dropProgress = NSProgress(parent: total, userInfo: nil)
+        let total = samplingParameters.initialSamples + samplingParameters.overSamples
         
-        super.init()
-        
-        extractProgress.totalUnitCount = Int64(samplingParameters.initialSamples)
-        dropProgress.totalUnitCount = Int64(samplingParameters.overSamples)
+        totalProgress = NSProgress(totalUnitCount: Int64(total))
     }
     
     override var asynchronous: Bool { 
@@ -138,7 +130,7 @@ class SamplingOperation: NSOperation {
                 stage = .Extract(++count)
                 let image = UIImage(CGImage: valid)
                 sampleImages.append(image!)
-                extractProgress.completedUnitCount = Int64(count)
+                totalProgress.completedUnitCount = Int64(count)
             }
             if count == samplingParameters.initialSamples {
                 dropImages()
@@ -152,7 +144,7 @@ class SamplingOperation: NSOperation {
 //        sampleImages.removeLast()
         willChangeValueForKey("isFinished")
         stage = .Completed
-        dropProgress.completedUnitCount = dropProgress.totalUnitCount
+        totalProgress.completedUnitCount = totalProgress.totalUnitCount
         didChangeValueForKey("isFinished")        
     }
     
