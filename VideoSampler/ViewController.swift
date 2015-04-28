@@ -76,9 +76,13 @@ extension ViewController: MCBrowserViewControllerDelegate {
     }
 }
 
+private let SamplingQueue = NSOperationQueue()
+
 extension ViewController: VideoSourceDelegate {
     func selectionCompleted(#source: VideoSource, URL: NSURL?) {
         dismissViewControllerAnimated(true) {}
-        println(URL)
+        if let video = URL {
+            SamplingQueue.addOperation(SamplingOperation(parameters: samplingParameters, video: video))
+        }
     }
 }
