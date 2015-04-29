@@ -20,7 +20,6 @@
 		BAB02E721AF0673700A0CDF1 /* Multipeer (Package).swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB02E4D1AF0467C00A0CDF1 /* Multipeer (Package).swift */; };
 		BAB02E731AF0690B00A0CDF1 /* Multipeer (Service).swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7B04481AEF8E900079BBA3 /* Multipeer (Service).swift */; };
 		BAB02E741AF0692600A0CDF1 /* Custom Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABE46981AF009F400EE6B79 /* Custom Operators.swift */; };
-		BAB02E7A1AF110A400A0CDF1 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = BAB02E791AF110A400A0CDF1 /* README.md */; };
 		BABE46951AEFA38D00EE6B79 /* Video Sources.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABE46941AEFA38D00EE6B79 /* Video Sources.swift */; };
 		BABE46971AEFAD2300EE6B79 /* SquareGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABE46961AEFAD2300EE6B79 /* SquareGrid.swift */; };
 		BABE46991AF009F400EE6B79 /* Custom Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABE46981AF009F400EE6B79 /* Custom Operators.swift */; };
@@ -457,7 +456,6 @@
 				BA7B04451AEF899B0079BBA3 /* Sampling.swift in Sources */,
 				BA06AE8A1AF17CBB00D50AA7 /* Image Utilities.swift in Sources */,
 				BABE46951AEFA38D00EE6B79 /* Video Sources.swift in Sources */,
-				BAB02E7A1AF110A400A0CDF1 /* README.md in Sources */,
 				BAB02E4E1AF0467C00A0CDF1 /* Multipeer (Package).swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
