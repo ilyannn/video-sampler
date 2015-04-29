@@ -83,7 +83,9 @@ extension ViewController: MCBrowserViewControllerDelegate {
 
 extension ViewController: MultipeerServiceDelegate {
     func collectionCompleted(collection: ImageCollection, by: MultipeerService) {
-        presentViewController ⬆︎ (SquareGridController(collection: collection), true, {})
+        dismissViewControllerAnimated ⬆︎ (false, { 
+            self.presentViewController ⬆︎ (SquareGridController(collection: collection), true, {})
+        })
     }
 }
 
@@ -120,11 +122,7 @@ extension ViewController: VideoSourceDelegate {
 extension ViewController {
     func prepareSamplingOperations(video: NSURL) -> [NSOperation] {
         
-        let display = DisplayOperation() ⨁ {
-            $0.targetViewController = self
-            $0.targetMultipeerService = multipeerService
-        }
-        
+        let display = DisplayOperation(target: multipeerService)
         let sample = SamplingOperation(parameters: samplingParameters, video: video)
         
         sample.totalProgress.addObserver(self, forKeyPath: "fractionCompleted", 

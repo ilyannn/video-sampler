@@ -24,8 +24,11 @@ class DisplayOperation: NSOperation {
         }
     }
     
-    var targetViewController: UIViewController? 
-    var targetMultipeerService: MultipeerService?
+    let targetService: MultipeerService
+
+    init(target: MultipeerService) {
+        targetService = target
+    }
     
     override var ready: Bool { 
         return displayImages != nil
@@ -33,19 +36,7 @@ class DisplayOperation: NSOperation {
     
     override func main() {
         if let images = displayImages {
-            
-            if let target = targetViewController {
-                let vc = SquareGridController(images: images)
-                target.dismissViewControllerAnimated(false) {} // if something was presented
-                target.presentViewController ⬆︎ (vc, true, {})
-            }
-            
-            if let service = targetMultipeerService {
-                for package in ImageCollection(local: images).packageRepresentation {
-                    service.send(data: package)
-                }                
-            }
-            
+            targetService.send(ImageCollection(local: images))
         } else {
             fatalError("Called too soon")
         }

@@ -8,12 +8,15 @@
 
 import MultipeerConnectivity
 
-private let ServiceType = "video-sampler"
-
+protocol PackageRepresentation {
+    var packageRepresentation: [NSData] { get }
+}
 
 protocol MultipeerServiceDelegate: NSObjectProtocol {
     func collectionCompleted(collection: ImageCollection, by: MultipeerService)
 }
+
+private let ServiceType = "video-sampler"
 
 class MultipeerService: NSObject {
 
@@ -41,7 +44,7 @@ class MultipeerService: NSObject {
     }
     
     // Use @autoclosure to avoid costly data creation is not necessary
-    func send(@autoclosure data factory: ()-> NSData) {
+    private func send(@autoclosure data factory: ()-> NSData) {
         let peers = multiSession.connectedPeers
         if peers.count == 0 {
             return
@@ -52,6 +55,13 @@ class MultipeerService: NSObject {
         multiSession.sendData(data, toPeers: peers, withMode: .Reliable, error: &error)
         if let problem = error {
             println("Problem sending data: \(problem)")
+        }
+    }
+    
+    func send(collection: ImageCollection) {
+        delegate?.collectionCompleted(collection, by: self)
+        for package in collection.packageRepresentation {
+            send(data: package)
         }
     }
 }

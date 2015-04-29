@@ -38,13 +38,11 @@ class SquareGridController: UIViewController {
     let gridImages: [UIImage]
     let gridSize: Int
         
-    convenience init(collection: ImageCollection) {
-        self.init(images: collection.imageList)
-    }
-    
-    init(images: [UIImage]) {
+    init(collection: ImageCollection) {
+        let images = collection.imageList
         gridImages = images
         gridSize = sqrt_up(images.count)
+        
         super.init(nibName: nil, bundle: nil)
     }
 

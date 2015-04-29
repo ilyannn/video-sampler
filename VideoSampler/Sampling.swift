@@ -124,8 +124,8 @@ class SamplingOperation: NSOperation {
             $0.generateCGImagesAsynchronouslyForTimes(times, completionHandler: self.saveGeneratedImage)
         }
     }    
-
 }
+
 
 // MARK: Hard stuff
 extension SamplingOperation {

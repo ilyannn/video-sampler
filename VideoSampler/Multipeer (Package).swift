@@ -12,7 +12,8 @@ import Foundation
 private let JPEGQuality: CGFloat = 0.03  // When sending.
 private let EndSentinel = "end".dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!
 
-class ImageCollection {
+
+class ImageCollection: PackageRepresentation {
     private(set) var imageList: [UIImage] = []
     private(set) var completed: Bool
     
@@ -36,7 +37,6 @@ class ImageCollection {
         }
     }
     
-    // For sending.
     var packageRepresentation: [NSData] {
         precondition(completed)
         return imageList.map { UIImageJPEGRepresentation($0, JPEGQuality) } + [EndSentinel]

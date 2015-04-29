@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		BA7B04451AEF899B0079BBA3 /* Sampling.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7B04441AEF899B0079BBA3 /* Sampling.swift */; };
 		BA7B04491AEF8E900079BBA3 /* Multipeer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7B04481AEF8E900079BBA3 /* Multipeer.swift */; };
-		BAB02E4B1AF0364200A0CDF1 /* Video (Targets).swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB02E4A1AF0364200A0CDF1 /* Video (Targets).swift */; };
+		BAB02E4B1AF0364200A0CDF1 /* DisplayOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB02E4A1AF0364200A0CDF1 /* DisplayOperation.swift */; };
 		BAB02E4E1AF0467C00A0CDF1 /* Multipeer (Package).swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB02E4D1AF0467C00A0CDF1 /* Multipeer (Package).swift */; };
 		BABE46951AEFA38D00EE6B79 /* Video (Sources).swift in Sources */ = {isa = PBXBuildFile; fileRef = BABE46941AEFA38D00EE6B79 /* Video (Sources).swift */; };
 		BABE46971AEFAD2300EE6B79 /* SquareGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABE46961AEFAD2300EE6B79 /* SquareGrid.swift */; };
@@ -37,7 +37,7 @@
 /* Begin PBXFileReference section */
 		BA7B04441AEF899B0079BBA3 /* Sampling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sampling.swift; sourceTree = "<group>"; };
 		BA7B04481AEF8E900079BBA3 /* Multipeer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Multipeer.swift; sourceTree = "<group>"; };
-		BAB02E4A1AF0364200A0CDF1 /* Video (Targets).swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Video (Targets).swift"; sourceTree = "<group>"; };
+		BAB02E4A1AF0364200A0CDF1 /* DisplayOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayOperation.swift; sourceTree = "<group>"; };
 		BAB02E4D1AF0467C00A0CDF1 /* Multipeer (Package).swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Multipeer (Package).swift"; sourceTree = "<group>"; };
 		BABE46941AEFA38D00EE6B79 /* Video (Sources).swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Video (Sources).swift"; sourceTree = "<group>"; };
 		BABE46961AEFAD2300EE6B79 /* SquareGrid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SquareGrid.swift; sourceTree = "<group>"; };
@@ -103,7 +103,7 @@
 				BA7B04481AEF8E900079BBA3 /* Multipeer.swift */,
 				BAB02E4D1AF0467C00A0CDF1 /* Multipeer (Package).swift */,
 				BABE46941AEFA38D00EE6B79 /* Video (Sources).swift */,
-				BAB02E4A1AF0364200A0CDF1 /* Video (Targets).swift */,
+				BAB02E4A1AF0364200A0CDF1 /* DisplayOperation.swift */,
 			);
 			name = Transport;
 			sourceTree = "<group>";
@@ -277,7 +277,7 @@
 			files = (
 				BAF08FF01AEF7C960078F729 /* ViewController.swift in Sources */,
 				BA7B04491AEF8E900079BBA3 /* Multipeer.swift in Sources */,
-				BAB02E4B1AF0364200A0CDF1 /* Video (Targets).swift in Sources */,
+				BAB02E4B1AF0364200A0CDF1 /* DisplayOperation.swift in Sources */,
 				BABE46991AF009F400EE6B79 /* Operators.swift in Sources */,
 				BABE46971AEFAD2300EE6B79 /* SquareGrid.swift in Sources */,
 				BAF08FEE1AEF7C960078F729 /* AppDelegate.swift in Sources */,
