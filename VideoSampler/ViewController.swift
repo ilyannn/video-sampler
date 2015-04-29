@@ -84,6 +84,7 @@ extension ViewController: MCBrowserViewControllerDelegate {
 extension ViewController: MultipeerServiceDelegate {
     func collectionCompleted(collection: ImageCollection, by: MultipeerService) {
         dismissViewControllerAnimated ⬆︎ (false, { 
+            println(collection.debugDescription)
             self.presentViewController ⬆︎ (SquareGridController(collection: collection), true, {})
         })
     }

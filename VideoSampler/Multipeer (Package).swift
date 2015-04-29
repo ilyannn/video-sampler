@@ -17,6 +17,8 @@ class ImageCollection: PackageRepresentation {
     private(set) var imageList: [UIImage] = []
     private(set) var completed: Bool
     
+    private(set) var totalDataSize = 0
+    
     init() {
         completed = false
     }    
@@ -32,6 +34,7 @@ class ImageCollection: PackageRepresentation {
             completed = true
         } else if let image = UIImage(data: data) {
             imageList.append(image)
+            totalDataSize += data.length
         } else {
             fatalError("Corrupted package")
         }
@@ -42,4 +45,15 @@ class ImageCollection: PackageRepresentation {
         return imageList.map { UIImageJPEGRepresentation($0, JPEGQuality) } + [EndSentinel]
     }
     
+}
+
+extension ImageCollection: DebugPrintable {
+    var debugDescription: String { 
+        let size = imageList.last?.size ?? CGSize()
+        
+        return "\n".join(["A collection of \(imageList.count) images.", 
+            "A representative image is of size \(Int(size.width))⨉\(Int(size.height))",
+            "\(totalDataSize / 1024) kB were transmitted",
+        ])
+    }
 }
