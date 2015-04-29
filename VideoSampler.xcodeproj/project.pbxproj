@@ -16,6 +16,9 @@
 		BAB02E5C1AF0670100A0CDF1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAB02E5B1AF0670100A0CDF1 /* Images.xcassets */; };
 		BAB02E5F1AF0670100A0CDF1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAB02E5D1AF0670100A0CDF1 /* Main.storyboard */; };
 		BAB02E6B1AF0670100A0CDF1 /* VideoSamplerCompanionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB02E6A1AF0670100A0CDF1 /* VideoSamplerCompanionTests.swift */; };
+		BAB02E721AF0673700A0CDF1 /* Multipeer (Package).swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB02E4D1AF0467C00A0CDF1 /* Multipeer (Package).swift */; };
+		BAB02E731AF0690B00A0CDF1 /* Multipeer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7B04481AEF8E900079BBA3 /* Multipeer.swift */; };
+		BAB02E741AF0692600A0CDF1 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABE46981AF009F400EE6B79 /* Operators.swift */; };
 		BABE46951AEFA38D00EE6B79 /* Video (Sources).swift in Sources */ = {isa = PBXBuildFile; fileRef = BABE46941AEFA38D00EE6B79 /* Video (Sources).swift */; };
 		BABE46971AEFAD2300EE6B79 /* SquareGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABE46961AEFAD2300EE6B79 /* SquareGrid.swift */; };
 		BABE46991AF009F400EE6B79 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABE46981AF009F400EE6B79 /* Operators.swift */; };
@@ -412,7 +415,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				BAB02E5A1AF0670100A0CDF1 /* ViewController.swift in Sources */,
+				BAB02E741AF0692600A0CDF1 /* Operators.swift in Sources */,
+				BAB02E731AF0690B00A0CDF1 /* Multipeer.swift in Sources */,
 				BAB02E581AF0670100A0CDF1 /* AppDelegate.swift in Sources */,
+				BAB02E721AF0673700A0CDF1 /* Multipeer (Package).swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,15 +8,19 @@
 
 import MultipeerConnectivity
 
-protocol PackageRepresentation {
-    var packageRepresentation: [NSData] { get }
-}
-
 protocol MultipeerServiceDelegate: NSObjectProtocol {
     func collectionCompleted(collection: ImageCollection, by: MultipeerService)
 }
 
 private let ServiceType = "video-sampler"
+
+private func MyDisplayName() -> String {
+    #if os(iOS)        
+        return UIDevice.currentDevice().name
+    #else
+        return "Mac"
+    #endif
+}
 
 class MultipeerService: NSObject {
 
@@ -29,7 +33,7 @@ class MultipeerService: NSObject {
     private var collectedData: [MCPeerID: ImageCollection] = [:]
     
     override init() {
-        multiSession = MCSession(peer: MCPeerID(displayName: UIDevice.currentDevice().name))
+        multiSession = MCSession(peer: MCPeerID(displayName: MyDisplayName()))
         advertiserAss = MCAdvertiserAssistant(serviceType: ServiceType, discoveryInfo: nil, session: multiSession)
         
         super.init()
@@ -58,12 +62,14 @@ class MultipeerService: NSObject {
         }
     }
     
+    #if os(iOS)
     func send(collection: ImageCollection) {
         delegate?.collectionCompleted(collection, by: self)
         for package in collection.packageRepresentation {
             send(data: package)
         }
     }
+    #endif
 }
 
 

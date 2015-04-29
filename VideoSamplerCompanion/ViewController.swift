@@ -10,10 +10,12 @@ import Cocoa
 
 class ViewController: NSViewController {
 
+    let multipeerService = MultipeerService()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        multipeerService.delegate = self
     }
 
     override var representedObject: AnyObject? {
@@ -21,7 +23,11 @@ class ViewController: NSViewController {
         // Update the view, if already loaded.
         }
     }
+}
 
-
+extension ViewController: MultipeerServiceDelegate {
+    func collectionCompleted(collection: ImageCollection, by: MultipeerService) {
+        println(collection.debugDescription)
+    }
 }
 

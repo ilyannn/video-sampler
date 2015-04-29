@@ -8,16 +8,22 @@
 
 import Foundation
 
+#if os(OSX)
+    import AppKit
+    typealias UIImage = NSImage
+#endif
+
 // MARK: Package format for image send/retrieve
 private let JPEGQuality: CGFloat = 0.1  // When sending.
 private let EndSentinel = "end".dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!
 
+#if os(iOS)
 private func PackImage(image: UIImage) -> NSData {
-    let small = image.CGImage.
-    return UIImageJPEGRepresentation(small, JPEGQuality) 
+        return UIImageJPEGRepresentation(image, JPEGQuality) 
 }
+#endif
 
-class ImageCollection: PackageRepresentation {
+class ImageCollection {
     private(set) var imageList: [UIImage] = []
     private(set) var completed: Bool
     
@@ -44,11 +50,13 @@ class ImageCollection: PackageRepresentation {
         }
     }
     
+    #if os(iOS)
     var packageRepresentation: [NSData] {
         precondition(completed)        
         return imageList.map(PackImage) + [EndSentinel]
     }
-    
+    #endif
+   
 }
 
 extension ImageCollection: DebugPrintable {
