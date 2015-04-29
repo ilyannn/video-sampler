@@ -53,18 +53,30 @@ class SquareGridController: UIViewController {
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }    
-
+    
+    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+        
+        for sub in view.subviews {
+            sub.removeFromSuperview
+        }
+        createViews(size)
+    }
+        
     override func loadView() {
         super.loadView()
+        createViews(view.bounds.size)
+    }
+    
+    func createViews(size: CGSize) {
         
-        let width = view.bounds.width / CGFloat(gridSize)
-        let height = view.bounds.height / CGFloat(gridSize)
+        let width = size.width / CGFloat(gridSize)
+        let height = size.height / CGFloat(gridSize)
         
         for (index, image) in enumerate(gridImages) {
             let row = index / gridSize
             let col = index - row * gridSize
             let frame = CGRectMake(CGFloat(col) * width, CGFloat(row) * height, width, height)
-            
+                        
             view.addSubview(UIImageView(frame: frame) ⨁ {
                 $0.image = image
                 $0.contentMode = .ScaleAspectFill
