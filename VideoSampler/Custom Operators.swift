@@ -9,6 +9,7 @@
 import Foundation
 
 // MARK: Send to main thread
+// Unicode: UPWARDS BLACK ARROW
 prefix operator ⬆︎ { } 
 
 prefix func ⬆︎(block: () -> ()) -> (() -> ()) {
@@ -23,6 +24,7 @@ func ⬆︎<T>(block: T -> (), args:T) {
 
 
 // MARK: Configure an object
+// Unicode: N-ARY CIRCLED PLUS OPERATOR
 // Example (assuming you have a class Point): Point() ⨁ { $0.x = 10; $0.y = 12 }
 infix operator ⨁ { associativity left }
 func ⨁<T>(object:T, @noescape configurator: T -> ()) -> T {

@@ -31,16 +31,15 @@ All of the code is **written in Swift**. An Objective-C bridging header is insta
 2. `opencv2` for OpenCV (real-time image recognition)
 
 
-
 # Custom Operators
 
 The following Swift operators, defined in [Custom Operators.swift](./VideoSampler/Custom%20Operators.swift) are used throughout the project:
 
-**Main thread** ⬆︎, an infix operator with the semantic meaning *schedule the block with the given parameters on the main thread*. Often used in delegate callbacks when lifting model events to the UI layer, for example: 
+**Main thread** ⬆︎ (*UPWARDS BLACK ARROW*), an infix operator with the semantic meaning *schedule the block with the given parameters on the main thread*. Often used in delegate callbacks when lifting model events to the UI layer, for example: 
 
      samplingProgressView.setProgress ⬆︎ (Float(progress.fractionCompleted), true)
 
-**Configure** ⨁, an infix operator with the semantic meaning *modify an object using a configure function*, implements a kind of ad-hoc builder pattern. Example:
+**Configure** ⨁ (*N-ARY CIRCLED PLUS OPERATOR*), an infix operator with the semantic meaning *modify an object using a configure function*, implements a kind of ad-hoc builder pattern. Example:
 
     return view.addSubview(UIImageView(frame: frame) ⨁ {
         $0.image = image
@@ -51,7 +50,7 @@ The following Swift operators, defined in [Custom Operators.swift](./VideoSample
 
 
 # Video Sampling
-Sampling logic is implemented in [Sampling.swift](./VideoSampler/Sampling.swift). The immutable `SamplingParameters` class describes the sampling strategy: how many sample frames are requested, and how many to take to improve sampling quality.
+Sampling logic is implemented in [Sampling.swift](./VideoSampler/Sampling.swift). The immutable `SamplingParameters` class describes the **sampling strategy**: how many sample frames are requested, and how many to take to improve sampling quality.
 
 Our app uses the specific subclass of `SquareParameters` in [SquareGrid.swift](./VideoSampler/SquareGrid.swift) to manage sampling parameters. This class converts a square edge size and an oversampling rate into the parameters above.
 
@@ -87,12 +86,14 @@ The latter is not included into the OS X compilation target. Instead, saving is 
 
 We extracted as most of the view controller logic as reasonable from the `ViewController` class [View Controller.swift](./VideoSampler/View%20Controller.swift) and are left with a simple class. We organize it into sections, visually separated as extensions that describe different facets of our view controller.
 
-Note that displaying the images is done through the send operation code path, when the multipeer service notifies `ViewController` via `collectionCompleted(collection: ImageCollection, by: MultipeerService)`. 
+Displaying the images is done through the send operation code path, when the sending service notifies `ViewController` via `collectionCompleted(collection: ImageCollection, by: MultipeerService)`. 
+
+We implement a very simple grid view controller in [SquareGrid.swift](./VideoSampler/View%20Controller.swift) to demonstrate implementing the views directly via `loadView()` and intercepting the motion events. An implementation of a suitable `UIColectionView` subclass should be used to display images in a production app instead.
 
 
 # Code Style
 
-We don’t use global variables, but occasionally declare an object as a private, that is, file-level, singleton, which is more semantically transparent than static class variables:
+We don’t use global variables (nor, more generally, a global state) but occasionally declare an object as a private, that is, file-level, singleton, which seems to me more semantically transparent compared to other solutions:
 
     private let SamplingQueue = NSOperationQueue()
 
