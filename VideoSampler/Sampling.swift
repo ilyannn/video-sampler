@@ -63,6 +63,7 @@ class SamplingOperation: NSOperation {
     let totalProgress: NSProgress
     
     private(set) var sampleImages: [UIImage] = []
+    private var sampleSignatures: [Signature] = []
     
     enum Stage {
         case Initial
@@ -134,24 +135,23 @@ private let ColorDepth = 4 // color components, don't change
 
 let SignatureEdge = 7
 
-private func ImageSignature(image: UIImage) -> Signature {
-    let old = image.CGImage
-    
+private func ImageSignature(image: CGImage) -> Signature {
     let width = SignatureEdge 
     let height = SignatureEdge
     
     let info: CGBitmapInfo = .ByteOrder32Big
     
-    let bitmap = CGBitmapContextCreate(nil, width, height, 8 /*bits*/, ColorDepth * width /*per row*/, 
-        CGColorSpaceCreateDeviceRGB(), info)
     
     let size = width * height * ColorDepth
     let raw = calloc(size, sizeof(Int8))
     
+    let bitmap = CGBitmapContextCreate(raw, width, height, 8 /*bits*/, ColorDepth * width /*per row*/, 
+        CGColorSpaceCreateDeviceRGB(), info)
+
     CGContextSetInterpolationQuality(bitmap, kCGInterpolationHigh)
     let resize = CGRect(x: 0, y: 0, width: CGFloat(width), height: CGFloat(height))
     
-    CGContextDrawImage(bitmap, resize, old)
+    CGContextDrawImage(bitmap, resize, image)
     
     return NSData(bytes: raw, length: size)
 }
@@ -187,7 +187,8 @@ private extension SamplingOperation {
         case .Extract(var count): 
             if let valid = image {
                 stage = .Extract(++count)
-                sampleImages.append(UIImage(CGImage: valid)!)
+                sampleImages += [UIImage(CGImage: valid)!]
+                sampleSignatures += [ImageSignature(valid)]
                 totalProgress.completedUnitCount = Int64(count)
             }
             if count == samplingParameters.initialSamples {
@@ -199,8 +200,7 @@ private extension SamplingOperation {
 
     func dropImages() {        
         // Compress images first
-        let signatures = sampleImages.map(ImageSignature)
-
+        let signatures = sampleSignatures
         var ix = Array(indices(signatures))
         ix.removeLast()
         
