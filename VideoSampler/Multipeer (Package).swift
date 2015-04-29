@@ -9,9 +9,13 @@
 import Foundation
 
 // MARK: Package format for image send/retrieve
-private let JPEGQuality: CGFloat = 0.03  // When sending.
+private let JPEGQuality: CGFloat = 0.1  // When sending.
 private let EndSentinel = "end".dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!
 
+private func PackImage(image: UIImage) -> NSData {
+    let small = image.CGImage.
+    return UIImageJPEGRepresentation(small, JPEGQuality) 
+}
 
 class ImageCollection: PackageRepresentation {
     private(set) var imageList: [UIImage] = []
@@ -41,8 +45,8 @@ class ImageCollection: PackageRepresentation {
     }
     
     var packageRepresentation: [NSData] {
-        precondition(completed)
-        return imageList.map { UIImageJPEGRepresentation($0, JPEGQuality) } + [EndSentinel]
+        precondition(completed)        
+        return imageList.map(PackImage) + [EndSentinel]
     }
     
 }
