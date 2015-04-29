@@ -1,4 +1,3 @@
-# video-sampler
 Video sampling app that:
 
 1. Imports a video file on an iOS device
@@ -6,7 +5,7 @@ Video sampling app that:
 1. Attempts to select the most useful frames
 1. Displays the frames in a grid on the device
 1. Sends the frames for display on connected iOS devices
-1. An OS X companion app can save the images in a user-selected folder
+1. Sends the frames for saving by user via an OS X companion app
 
 
 # How to use 
@@ -108,8 +107,8 @@ where Objective-C was fine with
 
 The translation of these APIs into Swift is also subject to change, so this type of work is still better performed in Objective-C (or plain C).
 
-Using precondition() is extremely useful, as it makes some code self-documenting.
+`precondition` is extremely useful, as it makes some code self-documenting. 
 
-Swift treatment of immutability, optionality, and file-level scope is extremely useful and it’s hard to go back to language without those concepts.
+Swift treatment of immutability, optionality, module- and file-level scope is extremely useful and it’s hard to go back to language without those concepts.
 
 
