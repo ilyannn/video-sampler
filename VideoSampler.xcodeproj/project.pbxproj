@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA06AE8A1AF17CBB00D50AA7 /* Image Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA06AE891AF17CBB00D50AA7 /* Image Utilities.swift */; };
 		BA7B04451AEF899B0079BBA3 /* Sampling.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7B04441AEF899B0079BBA3 /* Sampling.swift */; };
 		BA7B04491AEF8E900079BBA3 /* Multipeer (Service).swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7B04481AEF8E900079BBA3 /* Multipeer (Service).swift */; };
-		BAB02E4B1AF0364200A0CDF1 /* Display Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB02E4A1AF0364200A0CDF1 /* Display Operation.swift */; };
+		BAB02E4B1AF0364200A0CDF1 /* Multipeer (Send).swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB02E4A1AF0364200A0CDF1 /* Multipeer (Send).swift */; };
 		BAB02E4E1AF0467C00A0CDF1 /* Multipeer (Package).swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB02E4D1AF0467C00A0CDF1 /* Multipeer (Package).swift */; };
 		BAB02E5A1AF0670100A0CDF1 /* OSX Classes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB02E591AF0670100A0CDF1 /* OSX Classes.swift */; };
 		BAB02E5C1AF0670100A0CDF1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAB02E5B1AF0670100A0CDF1 /* Images.xcassets */; };
@@ -18,7 +19,6 @@
 		BAB02E721AF0673700A0CDF1 /* Multipeer (Package).swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB02E4D1AF0467C00A0CDF1 /* Multipeer (Package).swift */; };
 		BAB02E731AF0690B00A0CDF1 /* Multipeer (Service).swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7B04481AEF8E900079BBA3 /* Multipeer (Service).swift */; };
 		BAB02E741AF0692600A0CDF1 /* Custom Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABE46981AF009F400EE6B79 /* Custom Operators.swift */; };
-		BAB02E761AF06F0300A0CDF1 /* Sending.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB02E751AF06F0300A0CDF1 /* Sending.swift */; };
 		BAB02E7A1AF110A400A0CDF1 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = BAB02E791AF110A400A0CDF1 /* README.md */; };
 		BABE46951AEFA38D00EE6B79 /* Video Sources.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABE46941AEFA38D00EE6B79 /* Video Sources.swift */; };
 		BABE46971AEFAD2300EE6B79 /* SquareGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABE46961AEFAD2300EE6B79 /* SquareGrid.swift */; };
@@ -51,9 +51,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BA06AE891AF17CBB00D50AA7 /* Image Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Image Utilities.swift"; sourceTree = "<group>"; };
 		BA7B04441AEF899B0079BBA3 /* Sampling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sampling.swift; sourceTree = "<group>"; };
 		BA7B04481AEF8E900079BBA3 /* Multipeer (Service).swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Multipeer (Service).swift"; sourceTree = "<group>"; };
-		BAB02E4A1AF0364200A0CDF1 /* Display Operation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Display Operation.swift"; sourceTree = "<group>"; };
+		BAB02E4A1AF0364200A0CDF1 /* Multipeer (Send).swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Multipeer (Send).swift"; sourceTree = "<group>"; };
 		BAB02E4D1AF0467C00A0CDF1 /* Multipeer (Package).swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Multipeer (Package).swift"; sourceTree = "<group>"; };
 		BAB02E531AF0670100A0CDF1 /* VideoSamplerCompanion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VideoSamplerCompanion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAB02E561AF0670100A0CDF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -63,7 +64,6 @@
 		BAB02E641AF0670100A0CDF1 /* VideoSamplerCompanionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VideoSamplerCompanionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAB02E691AF0670100A0CDF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BAB02E6A1AF0670100A0CDF1 /* VideoSamplerCompanionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoSamplerCompanionTests.swift; sourceTree = "<group>"; };
-		BAB02E751AF06F0300A0CDF1 /* Sending.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sending.swift; sourceTree = "<group>"; };
 		BAB02E791AF110A400A0CDF1 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		BABE46941AEFA38D00EE6B79 /* Video Sources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Video Sources.swift"; sourceTree = "<group>"; };
 		BABE46961AEFAD2300EE6B79 /* SquareGrid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SquareGrid.swift; sourceTree = "<group>"; };
@@ -116,18 +116,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		BA7B04461AEF8E030079BBA3 /* Sampling Logic */ = {
+		BA7B04461AEF8E030079BBA3 /* Image Processing */ = {
 			isa = PBXGroup;
 			children = (
 				BA7B04441AEF899B0079BBA3 /* Sampling.swift */,
+				BA06AE891AF17CBB00D50AA7 /* Image Utilities.swift */,
 			);
-			name = "Sampling Logic";
+			name = "Image Processing";
 			sourceTree = "<group>";
 		};
 		BA7B04471AEF8E140079BBA3 /* User Interface */ = {
 			isa = PBXGroup;
 			children = (
-				BAF08FF61AEF7C960078F729 /* LaunchScreen.xib */,
 				BAF08FF11AEF7C960078F729 /* Main.storyboard */,
 				BAF08FEF1AEF7C960078F729 /* ViewController.swift */,
 				BABE46961AEFAD2300EE6B79 /* SquareGrid.swift */,
@@ -138,9 +138,8 @@
 		BAB02E4C1AF0369900A0CDF1 /* Sources and Targets */ = {
 			isa = PBXGroup;
 			children = (
-				BAB02E751AF06F0300A0CDF1 /* Sending.swift */,
 				BABE46941AEFA38D00EE6B79 /* Video Sources.swift */,
-				BAB02E4A1AF0364200A0CDF1 /* Display Operation.swift */,
+				BAB02E4A1AF0364200A0CDF1 /* Multipeer (Send).swift */,
 			);
 			name = "Sources and Targets";
 			sourceTree = "<group>";
@@ -229,7 +228,7 @@
 			children = (
 				BABE469E1AF0177B00EE6B79 /* Third-party */,
 				BAB02E781AF0794B00A0CDF1 /* iOS and OS X */,
-				BA7B04461AEF8E030079BBA3 /* Sampling Logic */,
+				BA7B04461AEF8E030079BBA3 /* Image Processing */,
 				BAB02E4C1AF0369900A0CDF1 /* Sources and Targets */,
 				BA7B04471AEF8E140079BBA3 /* User Interface */,
 				BAF08FED1AEF7C960078F729 /* AppDelegate.swift */,
@@ -241,6 +240,7 @@
 		BAF08FEB1AEF7C960078F729 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				BAF08FF61AEF7C960078F729 /* LaunchScreen.xib */,
 				BAF08FF41AEF7C960078F729 /* Images.xcassets */,
 				BAF08FEC1AEF7C960078F729 /* Info.plist */,
 			);
@@ -446,12 +446,12 @@
 			files = (
 				BAF08FF01AEF7C960078F729 /* ViewController.swift in Sources */,
 				BA7B04491AEF8E900079BBA3 /* Multipeer (Service).swift in Sources */,
-				BAB02E4B1AF0364200A0CDF1 /* Display Operation.swift in Sources */,
+				BAB02E4B1AF0364200A0CDF1 /* Multipeer (Send).swift in Sources */,
 				BABE46991AF009F400EE6B79 /* Custom Operators.swift in Sources */,
 				BABE46971AEFAD2300EE6B79 /* SquareGrid.swift in Sources */,
 				BAF08FEE1AEF7C960078F729 /* AppDelegate.swift in Sources */,
 				BA7B04451AEF899B0079BBA3 /* Sampling.swift in Sources */,
-				BAB02E761AF06F0300A0CDF1 /* Sending.swift in Sources */,
+				BA06AE8A1AF17CBB00D50AA7 /* Image Utilities.swift in Sources */,
 				BABE46951AEFA38D00EE6B79 /* Video Sources.swift in Sources */,
 				BAB02E7A1AF110A400A0CDF1 /* README.md in Sources */,
 				BAB02E4E1AF0467C00A0CDF1 /* Multipeer (Package).swift in Sources */,
@@ -743,6 +743,7 @@
 				BAB02E6E1AF0670100A0CDF1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BAB02E6F1AF0670100A0CDF1 /* Build configuration list for PBXNativeTarget "VideoSamplerCompanionTests" */ = {
 			isa = XCConfigurationList;
@@ -751,6 +752,7 @@
 				BAB02E711AF0670100A0CDF1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BAF08FE31AEF7C960078F729 /* Build configuration list for PBXProject "VideoSampler" */ = {
 			isa = XCConfigurationList;

@@ -50,12 +50,18 @@ Sampling is implemented as an `NSOperation` subclass. This has several benefits,
 
 The specific operation queue on which `SamplingOperation` is enqueued isn’t of great importance, as the operation is asynchronous. The high-level overview of the operation is as follows:
 
-1. Get the samples from the video file asynchronously using `AVAssetImageGenerator`.
-1. Transform each sample into a certain *signature*: a small sequence of bytes whose main property is that visually different images should produce different signatures.
-1. Compute distances between nearby images in some simple way.
+1. Get the sample frames from the video file using `AVAssetImageGenerator`.
+1. Transform each frame into a certain *signature*: a small sequence of bytes whose main property is that visually different images should produce different signatures.
+1. Compute distances between nearby samples in some simple way.
 1. Drop the images which are mostly similar to their neighbours.
 
-We use image interpolation in the step 2, specifically the image is drawn on a very small canvas (say, 7x7) and the RGB values of the pixels are used as the image signature.
+
+# Image signature
+To generate the signature in the step 2, the image is drawn on a very small canvas (say, 7x7) and the RGB values of the pixels are used as the above mentioned sequence of bytes. 
+
+We ask the system to use the highest available quality of interpolation, but this process is still much faster then the step 1.
+
+These methods are implemented together with other image processing functions in [Image Utilities.swift](./VideoSampler/Image Utilities.swift).
 
 
 # How to use 

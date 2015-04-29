@@ -8,6 +8,24 @@
 
 import Foundation
 
+// MARK: Image sending format
+private let ResizeFactor:CGFloat = 4
+extension ImageCollection {
+    
+    func send(service: MultipeerService) {
+        precondition(completed)        
+        service.delegate?.collectionCompleted(self, by: service)
+        
+        for image in imageList {
+            let resized = ResizeImage(image, ResizeFactor)
+            service.send(data: PackImage(resized))
+        }
+        
+        service.send(data: ImageCollection.EndSentinel)
+    }
+}
+
+
 // MARK: Operation that sends images
 
 /// This operation will not start until displayImages is set.

@@ -133,7 +133,7 @@ extension ViewController {
             options: .New, context: nil)
         
         sample.completionBlock = {
-            display.displayImages = sample.sampleImages
+            display.displayImages = sample.sampleFrames
         } 
         
         return [sample, display]
