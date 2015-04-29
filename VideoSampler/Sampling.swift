@@ -84,7 +84,7 @@ class SamplingOperation: NSOperation {
             assetSize = nil
         }
         
-        let total = samplingParameters.initialSamples + samplingParameters.overSamples
+        let total = 2 * samplingParameters.initialSamples
         
         totalProgress = NSProgress(totalUnitCount: Int64(total))
     }
@@ -128,6 +128,11 @@ class SamplingOperation: NSOperation {
 
 
 // MARK: Hard stuff
+typealias DistanceType = Double
+private func DistanceBetween(image1: UIImage, image2: UIImage) -> DistanceType {
+    return Double(arc4random_uniform(1000))
+}
+
 extension SamplingOperation {
     func saveGeneratedImage(requested: CMTime, image: CGImage?, actual: CMTime, result: AVAssetImageGeneratorResult, error: NSError?) {
         println("found image \(NSValue(CMTime:requested)) -> \(NSValue(CMTime:actual))")
@@ -146,16 +151,31 @@ extension SamplingOperation {
     }
 
     func dropImages() {
-        for drop in 0..<samplingParameters.overSamples {
-            stage = .Drop(drop)
-            let remove = Int(arc4random_uniform(UInt32(sampleImages.count)))
-            sampleImages.removeAtIndex(remove)
-            totalProgress.completedUnitCount++
+        var ix = Array(indices(sampleImages))
+        ix.removeLast()
+        
+        let distances: [(Int, DistanceType)] = ix.map { index in 
+            self.totalProgress.completedUnitCount++
+            return (index, DistanceBetween(self.sampleImages[index], self.sampleImages[index + 1]))
         }
         
+        let sorted = distances.sorted { (a, b) in
+            return a.1 > b.1
+        }
+        
+        var remains: [UIImage] = []
+        for pair in sorted[samplingParameters.overSamples..<samplingParameters.initialSamples] {
+            remains.append(sampleImages[pair.0])
+        }
+                
         willChangeValueForKey("isFinished")
-        stage = .Completed
+        
+        totalProgress.completedUnitCount++
         assert(totalProgress.completedUnitCount == totalProgress.totalUnitCount)
+
+        sampleImages = remains
+        stage = .Completed
+
         didChangeValueForKey("isFinished")        
     }
     
