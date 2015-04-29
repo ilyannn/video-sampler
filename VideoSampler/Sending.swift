@@ -8,6 +8,24 @@
 
 import Foundation
 
+func ResizeImage(image: UIImage, width: Int, height:Int) -> UIImage {
+    
+    let old = image.CGImage
+    
+    let bitmap = CGBitmapContextCreate(nil, width, height, 
+        CGImageGetBitsPerComponent(old), 0, 
+        CGImageGetColorSpace(old), CGImageGetBitmapInfo(old))
+    
+    CGContextSetInterpolationQuality(bitmap, ResizeQuality)
+    let resize = CGRect(x: 0, y: 0, width: CGFloat(width), height: CGFloat(height))
+    
+    CGContextDrawImage(bitmap, resize, old)
+    
+    let resized = CGBitmapContextCreateImage(bitmap)
+    return UIImage(CGImage: resized)!
+}
+
+
 private let JPEGQuality: CGFloat = 0.9  // When sending.
 private let ResizeQuality = CGInterpolationQuality(5) // High
 private let ResizeFactor:CGFloat = 4
@@ -21,16 +39,7 @@ private func ResizeImage(image: UIImage, factor: CGFloat) -> UIImage {
     let width = Int(resize.size.width)
     let height = Int(resize.size.height)
     
-    let old = image.CGImage
-    let bitmap = CGBitmapContextCreate(nil, width, height, 
-        CGImageGetBitsPerComponent(old), 0, 
-        CGImageGetColorSpace(old), CGImageGetBitmapInfo(old))
-    
-    CGContextSetInterpolationQuality(bitmap, ResizeQuality)
-    CGContextDrawImage(bitmap, resize, old)
-    
-    let resized = CGBitmapContextCreateImage(bitmap)
-    return UIImage(CGImage: resized)!
+    return ResizeImage(image, width, height)
 }
 
 extension ImageCollection {

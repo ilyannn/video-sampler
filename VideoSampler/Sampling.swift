@@ -128,12 +128,59 @@ class SamplingOperation: NSOperation {
 
 
 // MARK: Hard stuff
-typealias DistanceType = Double
-private func DistanceBetween(image1: UIImage, image2: UIImage) -> DistanceType {
-    return Double(arc4random_uniform(1000))
+typealias DistanceType = Int64
+private typealias Signature = NSData // of size SignatureEdge * SignatureEdge
+private let ColorDepth = 4 // color components, don't change
+
+let SignatureEdge = 7
+
+private func ImageSignature(image: UIImage) -> Signature {
+    let old = image.CGImage
+    
+    let width = SignatureEdge 
+    let height = SignatureEdge
+    
+    let info: CGBitmapInfo = .ByteOrder32Big
+    
+    let bitmap = CGBitmapContextCreate(nil, width, height, 8 /*bits*/, ColorDepth * width /*per row*/, 
+        CGColorSpaceCreateDeviceRGB(), info)
+    
+    let size = width * height * ColorDepth
+    let raw = calloc(size, sizeof(Int8))
+    
+    CGContextSetInterpolationQuality(bitmap, kCGInterpolationHigh)
+    let resize = CGRect(x: 0, y: 0, width: CGFloat(width), height: CGFloat(height))
+    
+    CGContextDrawImage(bitmap, resize, old)
+    
+    return NSData(bytes: raw, length: size)
 }
 
-extension SamplingOperation {
+extension UIImage {
+    func pointAt(#x: Int, y: Int) -> UIColor {
+        return .redColor()
+    }
+}
+
+
+private func DistanceBetween(a: Signature, b: Signature) -> DistanceType {
+    var distance: Int64 = 0 // can't exceed 2^16 * SignatureEdge^2 * ColorDepth
+    
+    for row in 1..<SignatureEdge-1 {
+        for col in 1..<SignatureEdge-1 {
+            for comp in 0..<ColorDepth {
+                let offset = ColorDepth * (SignatureEdge * row + col) + comp
+                let abyte = Int64(a.bytes[offset])
+                let bbyte = Int64(b.bytes[offset])
+                distance += (abyte - bbyte) * (abyte - bbyte)
+            }
+        }
+    }
+    
+    return distance
+}
+
+private extension SamplingOperation {
     func saveGeneratedImage(requested: CMTime, image: CGImage?, actual: CMTime, result: AVAssetImageGeneratorResult, error: NSError?) {
         println("found image \(NSValue(CMTime:requested)) -> \(NSValue(CMTime:actual))")
         switch (stage) {
@@ -150,31 +197,35 @@ extension SamplingOperation {
         }
     }
 
-    func dropImages() {
-        var ix = Array(indices(sampleImages))
+    func dropImages() {        
+        // Compress images first
+        let signatures = sampleImages.map(ImageSignature)
+
+        var ix = Array(indices(signatures))
         ix.removeLast()
         
+        // Compute distances between images
         let distances: [(Int, DistanceType)] = ix.map { index in 
             self.totalProgress.completedUnitCount++
-            return (index, DistanceBetween(self.sampleImages[index], self.sampleImages[index + 1]))
+            return (index, DistanceBetween(signatures[index], signatures[index + 1]))
         }
         
-        let sorted = distances.sorted { (a, b) in
+        // Find indices with the largest distances
+        let found = distances.sorted { (a, b) in
             return a.1 > b.1
-        }
+        }.map{ $0.0 }
         
-        var remains: [UIImage] = []
-        for pair in sorted[samplingParameters.overSamples..<samplingParameters.initialSamples] {
-            remains.append(sampleImages[pair.0])
-        }
-                
+        // Get as many indices as we need in the natural order
+        let remains = Array(found[0..<samplingParameters.finalSamples]).sorted(<)
+        
+        // Get those as the result
         willChangeValueForKey("isFinished")
         
+        sampleImages = remains.map{ index in self.sampleImages[index] }
+        stage = .Completed
+
         totalProgress.completedUnitCount++
         assert(totalProgress.completedUnitCount == totalProgress.totalUnitCount)
-
-        sampleImages = remains
-        stage = .Completed
 
         didChangeValueForKey("isFinished")        
     }
