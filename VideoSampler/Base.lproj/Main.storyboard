@@ -43,7 +43,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Bn-67-m4R" userLabel="Parameters View">
                                 <rect key="frame" x="16" y="106" width="584" height="139"/>
                                 <subviews>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="3" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="pnu-hn-PvQ">
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="3" maxValue="8" translatesAutoresizingMaskIntoConstraints="NO" id="pnu-hn-PvQ">
                                         <rect key="frame" x="6" y="32" width="483" height="31"/>
                                         <connections>
                                             <action selector="parametersUpdate:" destination="BYZ-38-t0r" eventType="valueChanged" id="Pm0-tM-ZLb"/>
@@ -64,7 +64,7 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="2" minValue="0.0" maxValue="3" translatesAutoresizingMaskIntoConstraints="NO" id="Hs9-tv-EgR">
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3" minValue="0.0" maxValue="7" translatesAutoresizingMaskIntoConstraints="NO" id="Hs9-tv-EgR">
                                         <rect key="frame" x="6" y="89" width="483" height="31"/>
                                         <connections>
                                             <action selector="parametersUpdate:" destination="BYZ-38-t0r" eventType="valueChanged" id="1ax-XC-hys"/>

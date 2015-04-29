@@ -131,7 +131,7 @@ class SamplingOperation: NSOperation {
 // MARK: Hard stuff
 typealias DistanceType = Int64
 private typealias Signature = NSData // of size SignatureEdge * SignatureEdge
-private let ColorDepth = 4 // color components, don't change
+private let ColorDepth = 4 // color components in RGBA, don't change
 
 let SignatureEdge = 7
 
@@ -139,14 +139,12 @@ private func ImageSignature(image: CGImage) -> Signature {
     let width = SignatureEdge 
     let height = SignatureEdge
     
-    let info: CGBitmapInfo = .ByteOrder32Big
-    
-    
+    let info: UInt32 = CGBitmapInfo.ByteOrder32Big.rawValue | CGImageAlphaInfo.PremultipliedLast.rawValue
     let size = width * height * ColorDepth
     let raw = calloc(size, sizeof(Int8))
     
     let bitmap = CGBitmapContextCreate(raw, width, height, 8 /*bits*/, ColorDepth * width /*per row*/, 
-        CGColorSpaceCreateDeviceRGB(), info)
+        CGColorSpaceCreateDeviceRGB(), CGBitmapInfo(info))
 
     CGContextSetInterpolationQuality(bitmap, kCGInterpolationHigh)
     let resize = CGRect(x: 0, y: 0, width: CGFloat(width), height: CGFloat(height))
@@ -156,22 +154,19 @@ private func ImageSignature(image: CGImage) -> Signature {
     return NSData(bytes: raw, length: size)
 }
 
-extension UIImage {
-    func pointAt(#x: Int, y: Int) -> UIColor {
-        return .redColor()
-    }
-}
-
 
 private func DistanceBetween(a: Signature, b: Signature) -> DistanceType {
     var distance: Int64 = 0 // can't exceed 2^16 * SignatureEdge^2 * ColorDepth
+    
+    var unsafe_a = UnsafePointer<UInt8>(a.bytes)
+    var unsafe_b = UnsafePointer<UInt8>(b.bytes)
     
     for row in 1..<SignatureEdge-1 {
         for col in 1..<SignatureEdge-1 {
             for comp in 0..<ColorDepth {
                 let offset = ColorDepth * (SignatureEdge * row + col) + comp
-                let abyte = Int64(a.bytes[offset])
-                let bbyte = Int64(b.bytes[offset])
+                let abyte = Int64(unsafe_a[offset])
+                let bbyte = Int64(unsafe_b[offset])
                 distance += (abyte - bbyte) * (abyte - bbyte)
             }
         }
