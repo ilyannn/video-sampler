@@ -8,6 +8,8 @@ Video sampling app that:
 1. Sends the frames for display on connected iOS devices
 1. An OS X companion app can save the images in a user-selected folder
 
+
+
 # Project structure
 
 There are **two targets**, an iOS and OS X app. 
@@ -19,11 +21,13 @@ All of the code is written in Swift. An Objective-C bridging header is installed
 1. `DBChooser` for Dropbox support
 2. (that's it for now)
 
+
+
 # Global operators
 
 The following custom operators, defined in [Swift Operators.swift](https://github.com/ilyannn/video-sampler/blob/master/VideoSampler/Swift%20Operators.swift) are used throughout the project:
 
-**Main thread** ⬆︎, an infix operator with the semantic meaning *schedule an operation with given parameters on the main thread*. Often used in the delegate callbacks when lifting model events to the UI layer, an example: 
+**Main thread** ⬆︎, an infix operator with the semantic meaning *schedule the block with the given parameters on the main thread*. Often used in delegate callbacks when lifting model events to the UI layer, for example: 
 
      samplingProgressView.setProgress ⬆︎ (Float(progress.fractionCompleted), true)
 
@@ -37,3 +41,13 @@ The following custom operators, defined in [Swift Operators.swift](https://githu
     })
 
 
+
+# How to use 
+
+1. Set the desired parameters
+1. Add nearby devices that run the same app or a desktop companion
+1. Select a video from one of the inputs
+1. Wait for the (Apple-provided) video compression and (our) extraction to finish.
+1. Enjoy the photos
+1. Shake the iOS devices
+1. Use the save button on the OS X app to save the images

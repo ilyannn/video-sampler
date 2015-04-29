@@ -116,13 +116,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		BA7B04461AEF8E030079BBA3 /* Logic */ = {
+		BA7B04461AEF8E030079BBA3 /* Sampling Logic */ = {
 			isa = PBXGroup;
 			children = (
-				BABE469F1AF0189100EE6B79 /* VideoSampler-Bridging-Header.h */,
 				BA7B04441AEF899B0079BBA3 /* Sampling.swift */,
 			);
-			name = Logic;
+			name = "Sampling Logic";
 			sourceTree = "<group>";
 		};
 		BA7B04471AEF8E140079BBA3 /* User Interface */ = {
@@ -195,6 +194,7 @@
 		BABE469E1AF0177B00EE6B79 /* Third-party */ = {
 			isa = PBXGroup;
 			children = (
+				BABE469F1AF0189100EE6B79 /* VideoSampler-Bridging-Header.h */,
 				BABE469A1AF0177500EE6B79 /* DBChooser.bundle */,
 				BABE469B1AF0177500EE6B79 /* DBChooser.framework */,
 			);
@@ -229,7 +229,7 @@
 			children = (
 				BABE469E1AF0177B00EE6B79 /* Third-party */,
 				BAB02E781AF0794B00A0CDF1 /* iOS and OS X */,
-				BA7B04461AEF8E030079BBA3 /* Logic */,
+				BA7B04461AEF8E030079BBA3 /* Sampling Logic */,
 				BAB02E4C1AF0369900A0CDF1 /* Sources and Targets */,
 				BA7B04471AEF8E140079BBA3 /* User Interface */,
 				BAF08FED1AEF7C960078F729 /* AppDelegate.swift */,
