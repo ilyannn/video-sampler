@@ -28,7 +28,7 @@ The OS X app is restricted to receiving and saving the images.
 All of the code is **written in Swift**. An Objective-C bridging header is installed to include the following third-party frameworks:
 
 1. `DBChooser` for Dropbox (file open support)
-2. `opencv2` for OpenCV (real-time image recognition)
+2. (planned) `opencv2` for OpenCV (real-time image recognition)
 
 
 # Custom Operators
@@ -88,7 +88,7 @@ We extracted as most of the view controller logic as reasonable from the `ViewCo
 
 Displaying the images is done through the send operation code path, when the sending service notifies `ViewController` via `collectionCompleted(collection: ImageCollection, by: MultipeerService)`. 
 
-We implement a very simple grid view controller in [SquareGrid.swift](./VideoSampler/View%20Controller.swift) to demonstrate implementing the views directly via `loadView()`, and intercepting the motion and rotation events. An implementation of a suitable `UIColectionView` subclass should be used to display images in a production app instead.
+We implement a very simple grid view controller in [SquareGrid.swift](./VideoSampler/View%20Controller.swift) to demonstrate implementing the views directly via `loadView()`, and intercepting the motion events. An implementation of a suitable `UIColectionView` subclass should be used to display images in a production app instead.
 
 
 # Code Style

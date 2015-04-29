@@ -64,7 +64,7 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3" minValue="0.0" maxValue="7" translatesAutoresizingMaskIntoConstraints="NO" id="Hs9-tv-EgR">
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="2" minValue="0.0" maxValue="7" translatesAutoresizingMaskIntoConstraints="NO" id="Hs9-tv-EgR">
                                         <rect key="frame" x="6" y="89" width="483" height="31"/>
                                         <connections>
                                             <action selector="parametersUpdate:" destination="BYZ-38-t0r" eventType="valueChanged" id="1ax-XC-hys"/>
