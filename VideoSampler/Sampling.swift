@@ -32,7 +32,7 @@ class SamplingParameters {
         precondition(overSamples >= 0)
     }    
     
-    func spacedTime(#duration: CMTime) -> [NSValue] {
+    private func spacedTime(#duration: CMTime) -> [NSValue] {
         var time = duration
         var step = duration.value * 2
         var array: [NSValue] = [] 
@@ -48,7 +48,7 @@ class SamplingParameters {
     }
 }
 
-extension Float {
+private extension Float {
     init(_ time: CMTime) {
         self.init(Float(time.value) / Float (time.timescale))
     }

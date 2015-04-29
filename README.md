@@ -25,7 +25,7 @@ All of the code is **written in Swift**. An Objective-C bridging header is insta
 
 # Custom operators
 
-The following custom operators, defined in [Custom Operators.swift](https://github.com/ilyannn/video-sampler/blob/master/VideoSampler/Custom%20Operators.swift) are used throughout the project:
+The following Swift operators, defined in [Custom Operators.swift](./VideoSampler/Custom%20Operators.swift) are used throughout the project:
 
 **Main thread** ⬆︎, an infix operator with the semantic meaning *schedule the block with the given parameters on the main thread*. Often used in delegate callbacks when lifting model events to the UI layer, for example: 
 
@@ -42,6 +42,20 @@ The following custom operators, defined in [Custom Operators.swift](https://gith
 
 
 # Image sampling
+Basic sampling logic is described in [Sampling.swift](./VideoSampler/Sampling.swift). The immutable `SamplingParameters` class contains the description of how many samples to take initially and how many to drop.
+
+Our app uses the specific subclass `SquareParameters` in [SquareGrid.swift](./VideoSampler/SquareGrid.swift) to manage sampling parameters. This class converts a square edge size and an oversampling rate into the parameters above.
+
+Sampling is implemented as an `NSOperation` subclass. This has several benefits, e.g. another operation can be scheduled after its completion using the standard system approach.
+
+The specific operation queue on which `SamplingOperation` is enqueued isn’t of great importance, as the operation is asynchronous. The high-level overview of the operation is as follows:
+
+1. Get the samples from the video file asynchronously using `AVAssetImageGenerator`.
+1. Transform each sample into a certain *signature*: a small sequence of bytes whose main property is that visually different images should produce different signatures.
+1. Compute distances between nearby images in some simple way.
+1. Drop the images which are mostly similar to their neighbours.
+
+We use image interpolation in the step 2, specifically the image is drawn on a very small canvas (say, 7x7) and the RGB values of the pixels are used as the image signature.
 
 
 # How to use 
