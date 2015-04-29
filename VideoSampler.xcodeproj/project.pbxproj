@@ -11,15 +11,15 @@
 		BA7B04491AEF8E900079BBA3 /* Multipeer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7B04481AEF8E900079BBA3 /* Multipeer.swift */; };
 		BAB02E4B1AF0364200A0CDF1 /* DisplayOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB02E4A1AF0364200A0CDF1 /* DisplayOperation.swift */; };
 		BAB02E4E1AF0467C00A0CDF1 /* Multipeer (Package).swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB02E4D1AF0467C00A0CDF1 /* Multipeer (Package).swift */; };
-		BAB02E581AF0670100A0CDF1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB02E571AF0670100A0CDF1 /* AppDelegate.swift */; };
-		BAB02E5A1AF0670100A0CDF1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB02E591AF0670100A0CDF1 /* ViewController.swift */; };
+		BAB02E5A1AF0670100A0CDF1 /* OSX Classes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB02E591AF0670100A0CDF1 /* OSX Classes.swift */; };
 		BAB02E5C1AF0670100A0CDF1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAB02E5B1AF0670100A0CDF1 /* Images.xcassets */; };
-		BAB02E5F1AF0670100A0CDF1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAB02E5D1AF0670100A0CDF1 /* Main.storyboard */; };
+		BAB02E5F1AF0670100A0CDF1 /* OSX Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAB02E5D1AF0670100A0CDF1 /* OSX Main.storyboard */; };
 		BAB02E6B1AF0670100A0CDF1 /* VideoSamplerCompanionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB02E6A1AF0670100A0CDF1 /* VideoSamplerCompanionTests.swift */; };
 		BAB02E721AF0673700A0CDF1 /* Multipeer (Package).swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB02E4D1AF0467C00A0CDF1 /* Multipeer (Package).swift */; };
 		BAB02E731AF0690B00A0CDF1 /* Multipeer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7B04481AEF8E900079BBA3 /* Multipeer.swift */; };
 		BAB02E741AF0692600A0CDF1 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABE46981AF009F400EE6B79 /* Operators.swift */; };
-		BABE46951AEFA38D00EE6B79 /* Video (Sources).swift in Sources */ = {isa = PBXBuildFile; fileRef = BABE46941AEFA38D00EE6B79 /* Video (Sources).swift */; };
+		BAB02E761AF06F0300A0CDF1 /* Multipeer (iOS).swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB02E751AF06F0300A0CDF1 /* Multipeer (iOS).swift */; };
+		BABE46951AEFA38D00EE6B79 /* Video Sources.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABE46941AEFA38D00EE6B79 /* Video Sources.swift */; };
 		BABE46971AEFAD2300EE6B79 /* SquareGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABE46961AEFAD2300EE6B79 /* SquareGrid.swift */; };
 		BABE46991AF009F400EE6B79 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABE46981AF009F400EE6B79 /* Operators.swift */; };
 		BABE469C1AF0177500EE6B79 /* DBChooser.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BABE469A1AF0177500EE6B79 /* DBChooser.bundle */; };
@@ -56,14 +56,14 @@
 		BAB02E4D1AF0467C00A0CDF1 /* Multipeer (Package).swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Multipeer (Package).swift"; sourceTree = "<group>"; };
 		BAB02E531AF0670100A0CDF1 /* VideoSamplerCompanion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VideoSamplerCompanion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAB02E561AF0670100A0CDF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BAB02E571AF0670100A0CDF1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BAB02E591AF0670100A0CDF1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BAB02E591AF0670100A0CDF1 /* OSX Classes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OSX Classes.swift"; sourceTree = "<group>"; };
 		BAB02E5B1AF0670100A0CDF1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		BAB02E5E1AF0670100A0CDF1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BAB02E5E1AF0670100A0CDF1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Base.lproj/OSX Main.storyboard"; sourceTree = "<group>"; };
 		BAB02E641AF0670100A0CDF1 /* VideoSamplerCompanionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VideoSamplerCompanionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAB02E691AF0670100A0CDF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BAB02E6A1AF0670100A0CDF1 /* VideoSamplerCompanionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoSamplerCompanionTests.swift; sourceTree = "<group>"; };
-		BABE46941AEFA38D00EE6B79 /* Video (Sources).swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Video (Sources).swift"; sourceTree = "<group>"; };
+		BAB02E751AF06F0300A0CDF1 /* Multipeer (iOS).swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Multipeer (iOS).swift"; sourceTree = "<group>"; };
+		BABE46941AEFA38D00EE6B79 /* Video Sources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Video Sources.swift"; sourceTree = "<group>"; };
 		BABE46961AEFAD2300EE6B79 /* SquareGrid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SquareGrid.swift; sourceTree = "<group>"; };
 		BABE46981AF009F400EE6B79 /* Operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
 		BABE469A1AF0177500EE6B79 /* DBChooser.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = DBChooser.bundle; sourceTree = "<group>"; };
@@ -140,7 +140,8 @@
 			children = (
 				BA7B04481AEF8E900079BBA3 /* Multipeer.swift */,
 				BAB02E4D1AF0467C00A0CDF1 /* Multipeer (Package).swift */,
-				BABE46941AEFA38D00EE6B79 /* Video (Sources).swift */,
+				BAB02E751AF06F0300A0CDF1 /* Multipeer (iOS).swift */,
+				BABE46941AEFA38D00EE6B79 /* Video Sources.swift */,
 				BAB02E4A1AF0364200A0CDF1 /* DisplayOperation.swift */,
 			);
 			name = Transport;
@@ -149,10 +150,9 @@
 		BAB02E541AF0670100A0CDF1 /* VideoSamplerCompanion */ = {
 			isa = PBXGroup;
 			children = (
-				BAB02E571AF0670100A0CDF1 /* AppDelegate.swift */,
-				BAB02E591AF0670100A0CDF1 /* ViewController.swift */,
+				BAB02E591AF0670100A0CDF1 /* OSX Classes.swift */,
 				BAB02E5B1AF0670100A0CDF1 /* Images.xcassets */,
-				BAB02E5D1AF0670100A0CDF1 /* Main.storyboard */,
+				BAB02E5D1AF0670100A0CDF1 /* OSX Main.storyboard */,
 				BAB02E551AF0670100A0CDF1 /* Supporting Files */,
 			);
 			path = VideoSamplerCompanion;
@@ -378,7 +378,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BAB02E5C1AF0670100A0CDF1 /* Images.xcassets in Resources */,
-				BAB02E5F1AF0670100A0CDF1 /* Main.storyboard in Resources */,
+				BAB02E5F1AF0670100A0CDF1 /* OSX Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,10 +414,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BAB02E5A1AF0670100A0CDF1 /* ViewController.swift in Sources */,
+				BAB02E5A1AF0670100A0CDF1 /* OSX Classes.swift in Sources */,
 				BAB02E741AF0692600A0CDF1 /* Operators.swift in Sources */,
 				BAB02E731AF0690B00A0CDF1 /* Multipeer.swift in Sources */,
-				BAB02E581AF0670100A0CDF1 /* AppDelegate.swift in Sources */,
 				BAB02E721AF0673700A0CDF1 /* Multipeer (Package).swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -441,7 +440,8 @@
 				BABE46971AEFAD2300EE6B79 /* SquareGrid.swift in Sources */,
 				BAF08FEE1AEF7C960078F729 /* AppDelegate.swift in Sources */,
 				BA7B04451AEF899B0079BBA3 /* Sampling.swift in Sources */,
-				BABE46951AEFA38D00EE6B79 /* Video (Sources).swift in Sources */,
+				BAB02E761AF06F0300A0CDF1 /* Multipeer (iOS).swift in Sources */,
+				BABE46951AEFA38D00EE6B79 /* Video Sources.swift in Sources */,
 				BAB02E4E1AF0467C00A0CDF1 /* Multipeer (Package).swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -470,12 +470,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		BAB02E5D1AF0670100A0CDF1 /* Main.storyboard */ = {
+		BAB02E5D1AF0670100A0CDF1 /* OSX Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				BAB02E5E1AF0670100A0CDF1 /* Base */,
 			);
-			name = Main.storyboard;
+			name = "OSX Main.storyboard";
 			sourceTree = "<group>";
 		};
 		BAF08FF11AEF7C960078F729 /* Main.storyboard */ = {

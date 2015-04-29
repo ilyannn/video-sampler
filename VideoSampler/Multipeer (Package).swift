@@ -14,21 +14,14 @@ import Foundation
 #endif
 
 // MARK: Package format for image send/retrieve
-private let JPEGQuality: CGFloat = 0.1  // When sending.
-private let EndSentinel = "end".dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!
-
-#if os(iOS)
-private func PackImage(image: UIImage) -> NSData {
-        return UIImageJPEGRepresentation(image, JPEGQuality) 
-}
-#endif
-
 class ImageCollection {
     private(set) var imageList: [UIImage] = []
     private(set) var completed: Bool
     
     private(set) var totalDataSize = 0
     
+    static let EndSentinel = "end".dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!    
+
     init() {
         completed = false
     }    
@@ -40,7 +33,7 @@ class ImageCollection {
     
     // Send invalid data to complete the image collection.
     func collect(#data: NSData) {
-        if data == EndSentinel {
+        if data == ImageCollection.EndSentinel {
             completed = true
         } else if let image = UIImage(data: data) {
             imageList.append(image)
@@ -49,13 +42,6 @@ class ImageCollection {
             fatalError("Corrupted package")
         }
     }
-    
-    #if os(iOS)
-    var packageRepresentation: [NSData] {
-        precondition(completed)        
-        return imageList.map(PackImage) + [EndSentinel]
-    }
-    #endif
    
 }
 

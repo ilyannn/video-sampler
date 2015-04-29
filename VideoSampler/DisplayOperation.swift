@@ -36,7 +36,7 @@ class DisplayOperation: NSOperation {
     
     override func main() {
         if let images = displayImages {
-            targetService.send(ImageCollection(local: images))
+            ImageCollection(local: images).send(targetService)
         } else {
             fatalError("Called too soon")
         }

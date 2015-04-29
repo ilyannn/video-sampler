@@ -39,7 +39,6 @@ class MultipeerService: NSObject {
         super.init()
         
         multiSession.delegate = self        
-        advertiserAss.delegate = self                
         advertiserAss.start()
     }
     
@@ -48,7 +47,7 @@ class MultipeerService: NSObject {
     }
     
     // Use @autoclosure to avoid costly data creation is not necessary
-    private func send(@autoclosure data factory: ()-> NSData) {
+    func send(@autoclosure data factory: ()-> NSData) {
         let peers = multiSession.connectedPeers
         if peers.count == 0 {
             return
@@ -62,16 +61,7 @@ class MultipeerService: NSObject {
         }
     }
     
-    #if os(iOS)
-    func send(collection: ImageCollection) {
-        delegate?.collectionCompleted(collection, by: self)
-        for package in collection.packageRepresentation {
-            send(data: package)
-        }
-    }
-    #endif
 }
-
 
 extension MultipeerService: MCSessionDelegate {
     func session(session: MCSession!, peer peerID: MCPeerID!, didChangeState state: MCSessionState) {
@@ -103,8 +93,4 @@ extension MultipeerService: MCSessionDelegate {
     func session(session: MCSession!, didReceiveStream stream: NSInputStream!, withName streamName: String!, fromPeer peerID: MCPeerID!) {
         
     }
-}
-
-extension MultipeerService: MCAdvertiserAssistantDelegate {
-    // all methods in the protocol are optional
 }
