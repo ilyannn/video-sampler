@@ -19,6 +19,7 @@
 		BAB02E731AF0690B00A0CDF1 /* Multipeer (Service).swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7B04481AEF8E900079BBA3 /* Multipeer (Service).swift */; };
 		BAB02E741AF0692600A0CDF1 /* Swift Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABE46981AF009F400EE6B79 /* Swift Operators.swift */; };
 		BAB02E761AF06F0300A0CDF1 /* Sending.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB02E751AF06F0300A0CDF1 /* Sending.swift */; };
+		BAB02E7A1AF110A400A0CDF1 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = BAB02E791AF110A400A0CDF1 /* README.md */; };
 		BABE46951AEFA38D00EE6B79 /* Video Sources.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABE46941AEFA38D00EE6B79 /* Video Sources.swift */; };
 		BABE46971AEFAD2300EE6B79 /* SquareGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABE46961AEFAD2300EE6B79 /* SquareGrid.swift */; };
 		BABE46991AF009F400EE6B79 /* Swift Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABE46981AF009F400EE6B79 /* Swift Operators.swift */; };
@@ -63,6 +64,7 @@
 		BAB02E691AF0670100A0CDF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BAB02E6A1AF0670100A0CDF1 /* VideoSamplerCompanionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoSamplerCompanionTests.swift; sourceTree = "<group>"; };
 		BAB02E751AF06F0300A0CDF1 /* Sending.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sending.swift; sourceTree = "<group>"; };
+		BAB02E791AF110A400A0CDF1 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		BABE46941AEFA38D00EE6B79 /* Video Sources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Video Sources.swift"; sourceTree = "<group>"; };
 		BABE46961AEFAD2300EE6B79 /* SquareGrid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SquareGrid.swift; sourceTree = "<group>"; };
 		BABE46981AF009F400EE6B79 /* Swift Operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Swift Operators.swift"; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 		BAF08FDF1AEF7C960078F729 = {
 			isa = PBXGroup;
 			children = (
+				BAB02E791AF110A400A0CDF1 /* README.md */,
 				BAF08FEA1AEF7C960078F729 /* VideoSampler */,
 				BAF090001AEF7C960078F729 /* VideoSamplerTests */,
 				BAB02E541AF0670100A0CDF1 /* VideoSamplerCompanion */,
@@ -450,6 +453,7 @@
 				BA7B04451AEF899B0079BBA3 /* Sampling.swift in Sources */,
 				BAB02E761AF06F0300A0CDF1 /* Sending.swift in Sources */,
 				BABE46951AEFA38D00EE6B79 /* Video Sources.swift in Sources */,
+				BAB02E7A1AF110A400A0CDF1 /* README.md in Sources */,
 				BAB02E4E1AF0467C00A0CDF1 /* Multipeer (Package).swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

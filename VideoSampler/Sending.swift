@@ -27,7 +27,7 @@ func ResizeImage(image: UIImage, width: Int, height:Int) -> UIImage {
 
 
 private let JPEGQuality: CGFloat = 0.9  // When sending.
-private let ResizeQuality = CGInterpolationQuality(5) // High
+private let ResizeQuality = kCGInterpolationHigh
 private let ResizeFactor:CGFloat = 4
 
 private func PackImage(image: UIImage) -> NSData {
