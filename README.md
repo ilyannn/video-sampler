@@ -88,7 +88,7 @@ We extracted as most of the view controller logic as reasonable from the `ViewCo
 
 Displaying the images is done through the send operation code path, when the sending service notifies `ViewController` via `collectionCompleted(collection: ImageCollection, by: MultipeerService)`. 
 
-We implement a very simple grid view controller in [SquareGrid.swift](./VideoSampler/View%20Controller.swift) to demonstrate implementing the views directly via `loadView()` and intercepting the motion events. An implementation of a suitable `UIColectionView` subclass should be used to display images in a production app instead.
+We implement a very simple grid view controller in [SquareGrid.swift](./VideoSampler/View%20Controller.swift) to demonstrate implementing the views directly via `loadView()`, and intercepting the motion and rotation events. An implementation of a suitable `UIColectionView` subclass should be used to display images in a production app instead.
 
 
 # Code Style
@@ -97,6 +97,10 @@ We don’t use global variables (nor, more generally, a global state) but occasi
 
     private let SamplingQueue = NSOperationQueue()
 
+The project is supposed to compile without any warnings. We always treat a warning as an issue to be solved.
+
+
+# Swift thoughts
 
 Swift is much stricter compared to Objective-C with type conversion, which makes doing some low-level work, especially around Core Graphics, harder, cf. 
     
