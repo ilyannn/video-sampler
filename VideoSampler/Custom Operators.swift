@@ -24,7 +24,7 @@ func ⬆︎<T>(block: T -> (), args:T) {
 
 // MARK: Configure an object
 // Example (assuming you have a class Point): Point() ⨁ { $0.x = 10; $0.y = 12 }
-infix operator  ⨁ { associativity left }
+infix operator ⨁ { associativity left }
 func ⨁<T>(object:T, @noescape configurator: T -> ()) -> T {
     configurator(object)
     return object

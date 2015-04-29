@@ -17,12 +17,12 @@
 		BAB02E6B1AF0670100A0CDF1 /* VideoSamplerCompanionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB02E6A1AF0670100A0CDF1 /* VideoSamplerCompanionTests.swift */; };
 		BAB02E721AF0673700A0CDF1 /* Multipeer (Package).swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB02E4D1AF0467C00A0CDF1 /* Multipeer (Package).swift */; };
 		BAB02E731AF0690B00A0CDF1 /* Multipeer (Service).swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7B04481AEF8E900079BBA3 /* Multipeer (Service).swift */; };
-		BAB02E741AF0692600A0CDF1 /* Swift Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABE46981AF009F400EE6B79 /* Swift Operators.swift */; };
+		BAB02E741AF0692600A0CDF1 /* Custom Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABE46981AF009F400EE6B79 /* Custom Operators.swift */; };
 		BAB02E761AF06F0300A0CDF1 /* Sending.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB02E751AF06F0300A0CDF1 /* Sending.swift */; };
 		BAB02E7A1AF110A400A0CDF1 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = BAB02E791AF110A400A0CDF1 /* README.md */; };
 		BABE46951AEFA38D00EE6B79 /* Video Sources.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABE46941AEFA38D00EE6B79 /* Video Sources.swift */; };
 		BABE46971AEFAD2300EE6B79 /* SquareGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABE46961AEFAD2300EE6B79 /* SquareGrid.swift */; };
-		BABE46991AF009F400EE6B79 /* Swift Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABE46981AF009F400EE6B79 /* Swift Operators.swift */; };
+		BABE46991AF009F400EE6B79 /* Custom Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABE46981AF009F400EE6B79 /* Custom Operators.swift */; };
 		BABE469C1AF0177500EE6B79 /* DBChooser.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BABE469A1AF0177500EE6B79 /* DBChooser.bundle */; };
 		BABE469D1AF0177500EE6B79 /* DBChooser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BABE469B1AF0177500EE6B79 /* DBChooser.framework */; };
 		BAF08FEE1AEF7C960078F729 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF08FED1AEF7C960078F729 /* AppDelegate.swift */; };
@@ -67,7 +67,7 @@
 		BAB02E791AF110A400A0CDF1 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		BABE46941AEFA38D00EE6B79 /* Video Sources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Video Sources.swift"; sourceTree = "<group>"; };
 		BABE46961AEFAD2300EE6B79 /* SquareGrid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SquareGrid.swift; sourceTree = "<group>"; };
-		BABE46981AF009F400EE6B79 /* Swift Operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Swift Operators.swift"; sourceTree = "<group>"; };
+		BABE46981AF009F400EE6B79 /* Custom Operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Custom Operators.swift"; sourceTree = "<group>"; };
 		BABE469A1AF0177500EE6B79 /* DBChooser.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = DBChooser.bundle; sourceTree = "<group>"; };
 		BABE469B1AF0177500EE6B79 /* DBChooser.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DBChooser.framework; sourceTree = "<group>"; };
 		BABE469F1AF0189100EE6B79 /* VideoSampler-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VideoSampler-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -184,7 +184,7 @@
 		BAB02E781AF0794B00A0CDF1 /* iOS and OS X */ = {
 			isa = PBXGroup;
 			children = (
-				BABE46981AF009F400EE6B79 /* Swift Operators.swift */,
+				BABE46981AF009F400EE6B79 /* Custom Operators.swift */,
 				BA7B04481AEF8E900079BBA3 /* Multipeer (Service).swift */,
 				BAB02E4D1AF0467C00A0CDF1 /* Multipeer (Package).swift */,
 			);
@@ -426,7 +426,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BAB02E5A1AF0670100A0CDF1 /* OSX Classes.swift in Sources */,
-				BAB02E741AF0692600A0CDF1 /* Swift Operators.swift in Sources */,
+				BAB02E741AF0692600A0CDF1 /* Custom Operators.swift in Sources */,
 				BAB02E731AF0690B00A0CDF1 /* Multipeer (Service).swift in Sources */,
 				BAB02E721AF0673700A0CDF1 /* Multipeer (Package).swift in Sources */,
 			);
@@ -447,7 +447,7 @@
 				BAF08FF01AEF7C960078F729 /* ViewController.swift in Sources */,
 				BA7B04491AEF8E900079BBA3 /* Multipeer (Service).swift in Sources */,
 				BAB02E4B1AF0364200A0CDF1 /* Display Operation.swift in Sources */,
-				BABE46991AF009F400EE6B79 /* Swift Operators.swift in Sources */,
+				BABE46991AF009F400EE6B79 /* Custom Operators.swift in Sources */,
 				BABE46971AEFAD2300EE6B79 /* SquareGrid.swift in Sources */,
 				BAF08FEE1AEF7C960078F729 /* AppDelegate.swift in Sources */,
 				BA7B04451AEF899B0079BBA3 /* Sampling.swift in Sources */,
