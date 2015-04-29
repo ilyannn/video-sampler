@@ -82,7 +82,7 @@ extension ViewController: MCBrowserViewControllerDelegate {
 }
 
 extension ViewController: MultipeerServiceDelegate {
-    func presentOnly(vc: UIViewController) {
+    private func presentOnly(vc: UIViewController) {
         dismissViewControllerAnimated(false) {} 
         presentViewController(vc, animated: true) {}
     }
@@ -126,17 +126,17 @@ extension ViewController: VideoSourceDelegate {
 extension ViewController {
     func prepareSamplingOperations(video: NSURL) -> [NSOperation] {
         
-        let display = DisplayOperation(target: multipeerService)
+        let send = SendOperation(target: multipeerService)
         let sample = SamplingOperation(parameters: samplingParameters, video: video)
         
         sample.totalProgress.addObserver(self, forKeyPath: "fractionCompleted", 
             options: .New, context: nil)
         
         sample.completionBlock = {
-            display.displayImages = sample.sampleFrames
+            send.displayImages = sample.sampleFrames
         } 
         
-        return [sample, display]
+        return [sample, send]
     }
 
 }

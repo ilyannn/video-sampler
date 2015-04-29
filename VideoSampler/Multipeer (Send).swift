@@ -29,7 +29,7 @@ extension ImageCollection {
 // MARK: Operation that sends images
 
 /// This operation will not start until displayImages is set.
-class DisplayOperation: NSOperation {
+class SendOperation: NSOperation {
     
 //    class func keyPathsForValuesAffectingIsReady() -> NSSet {
 //        return NSSet(object: "displayImages")
