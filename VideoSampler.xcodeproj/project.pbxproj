@@ -151,8 +151,8 @@
 			isa = PBXGroup;
 			children = (
 				BAB02E591AF0670100A0CDF1 /* OSX Classes.swift */,
-				BAB02E5B1AF0670100A0CDF1 /* Images.xcassets */,
 				BAB02E5D1AF0670100A0CDF1 /* OSX Main.storyboard */,
+				BAB02E5B1AF0670100A0CDF1 /* Images.xcassets */,
 				BAB02E551AF0670100A0CDF1 /* Supporting Files */,
 			);
 			path = VideoSamplerCompanion;

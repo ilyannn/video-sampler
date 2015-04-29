@@ -681,10 +681,13 @@
                             </textField>
                             <button horizontalHuggingPriority="499" verticalHuggingPriority="399" translatesAutoresizingMaskIntoConstraints="NO" id="bRk-XW-AtK">
                                 <rect key="frame" x="347" y="-3" width="55" height="35"/>
-                                <buttonCell key="cell" type="bevel" title="Save" bezelStyle="regularSquare" alignment="center" controlSize="mini" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Imd-pi-oMB">
+                                <buttonCell key="cell" type="bevel" title="Save" bezelStyle="regularSquare" alignment="center" controlSize="mini" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Imd-pi-oMB">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="savePhotos:" target="XfG-lQ-9wD" id="ShZ-bN-zVj"/>
+                                </connections>
                             </button>
                         </subviews>
                         <constraints>
@@ -699,6 +702,7 @@
                     </view>
                     <connections>
                         <outlet property="infoLabel" destination="ABP-uX-3pR" id="2Hq-bM-dHH"/>
+                        <outlet property="saveButton" destination="bRk-XW-AtK" id="qRE-2k-rwj"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

@@ -19,6 +19,7 @@ class ImageCollection {
     private(set) var completed: Bool
     
     private(set) var totalDataSize = 0
+    private(set) var receivedData: [NSData] = []
     
     static let EndSentinel = "end".dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!    
 
@@ -36,6 +37,7 @@ class ImageCollection {
         if data == ImageCollection.EndSentinel {
             completed = true
         } else if let image = UIImage(data: data) {
+            receivedData.append(data)
             imageList.append(image)
             totalDataSize += data.length
         } else {

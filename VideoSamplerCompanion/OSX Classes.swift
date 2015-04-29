@@ -26,25 +26,49 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 class OSXViewController: NSViewController {
 
     @IBOutlet weak var infoLabel: NSTextField!
+    @IBOutlet weak var saveButton: NSButton!
 
     let multipeerService = MultipeerService()
+    var lastCollection: ImageCollection? { didSet {
+        
+        saveButton.enabled = lastCollection != nil
+        infoLabel.stringValue = lastCollection?.debugDescription ?? ""
 
+    }}
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         multipeerService.delegate = self
     }
 
-    override var representedObject: AnyObject? {
-        didSet {
-        // Update the view, if already loaded.
+    func inputSaveDirectory() -> NSURL? {
+        let panel = NSOpenPanel() ⨁ {
+            $0.allowsMultipleSelection = false
+            $0.canChooseFiles = false
+            $0.canChooseDirectories = true
+        }
+        panel.runModal() 
+        return panel.URLs.last as? NSURL
+    }
+    
+    @IBAction func savePhotos(sender: AnyObject) {
+        if let collection = lastCollection, URL = inputSaveDirectory() {
+            for (index, data) in enumerate(collection.receivedData) {
+                let file = URL.URLByAppendingPathComponent("\(index).jpeg")
+                data.writeToFile(file.path!, atomically: false)
+            }
+            lastCollection = nil
         }
     }
+    
 }
 
 extension OSXViewController: MultipeerServiceDelegate {
     func collectionCompleted(collection: ImageCollection, by: MultipeerService) {
-        infoLabel.stringValue = collection.debugDescription
+        
+        { self.lastCollection = $0 } ⬆︎ collection
     }
+    
 }
 

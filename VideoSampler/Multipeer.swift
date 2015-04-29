@@ -39,6 +39,7 @@ class MultipeerService: NSObject {
         super.init()
         
         multiSession.delegate = self        
+        advertiserAss.delegate = self                
         advertiserAss.start()
     }
     
@@ -93,4 +94,8 @@ extension MultipeerService: MCSessionDelegate {
     func session(session: MCSession!, didReceiveStream stream: NSInputStream!, withName streamName: String!, fromPeer peerID: MCPeerID!) {
         
     }
+}
+
+extension MultipeerService: MCAdvertiserAssistantDelegate {
+    // all methods in the protocol are optional
 }
