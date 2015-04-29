@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BA06AE8A1AF17CBB00D50AA7 /* Image Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA06AE891AF17CBB00D50AA7 /* Image Utilities.swift */; };
+		BA43443E1AF18BD500254DF7 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA43443D1AF18BD500254DF7 /* opencv2.framework */; };
 		BA7B04451AEF899B0079BBA3 /* Sampling.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7B04441AEF899B0079BBA3 /* Sampling.swift */; };
 		BA7B04491AEF8E900079BBA3 /* Multipeer (Service).swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7B04481AEF8E900079BBA3 /* Multipeer (Service).swift */; };
 		BAB02E4B1AF0364200A0CDF1 /* Multipeer (Send).swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB02E4A1AF0364200A0CDF1 /* Multipeer (Send).swift */; };
@@ -52,6 +53,7 @@
 
 /* Begin PBXFileReference section */
 		BA06AE891AF17CBB00D50AA7 /* Image Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Image Utilities.swift"; sourceTree = "<group>"; };
+		BA43443D1AF18BD500254DF7 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
 		BA7B04441AEF899B0079BBA3 /* Sampling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sampling.swift; sourceTree = "<group>"; };
 		BA7B04481AEF8E900079BBA3 /* Multipeer (Service).swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Multipeer (Service).swift"; sourceTree = "<group>"; };
 		BAB02E4A1AF0364200A0CDF1 /* Multipeer (Send).swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Multipeer (Send).swift"; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA43443E1AF18BD500254DF7 /* opencv2.framework in Frameworks */,
 				BABE469D1AF0177500EE6B79 /* DBChooser.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -194,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				BABE469F1AF0189100EE6B79 /* VideoSampler-Bridging-Header.h */,
+				BA43443D1AF18BD500254DF7 /* opencv2.framework */,
 				BABE469A1AF0177500EE6B79 /* DBChooser.bundle */,
 				BABE469B1AF0177500EE6B79 /* DBChooser.framework */,
 			);

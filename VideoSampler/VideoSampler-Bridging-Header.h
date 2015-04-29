@@ -5,3 +5,4 @@
 #import <DBChooser/DBChooser.h>
 #import <DBChooser/DBChooserResult.h>
 
+#import <opencv2/opencv.hpp>
