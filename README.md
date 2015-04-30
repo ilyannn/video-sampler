@@ -6,7 +6,6 @@ Video sampling app that:
 1. Displays the frames in a grid on the device
 1. Sends the frames for display on connected iOS devices
 1. Sends the frames for saving by user via an OS X companion app
-?
 
 # How to use 
 
