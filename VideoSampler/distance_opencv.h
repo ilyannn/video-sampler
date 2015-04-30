@@ -10,5 +10,11 @@
 #define __VideoSampler__distance_opencv__
 
 #include <stdio.h>
+#include <CoreGraphics/CoreGraphics.h>
+
+typedef double Distance;
+typedef CGImageRef Image;
+
+Distance compare_opencv(Image a, Image b);
 
 #endif /* defined(__VideoSampler__distance_opencv__) */
