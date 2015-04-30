@@ -28,7 +28,7 @@ The OS X app is restricted to receiving and saving the images.
 All of the code is **written in Swift**. An Objective-C bridging header is installed to include the following third-party frameworks:
 
 1. `DBChooser` for Dropbox (file open support)
-2. (planned) `opencv2` for OpenCV (real-time image recognition)
+2. `opencv2` for OpenCV (real-time image comparison)
 
 
 # Custom Operators
