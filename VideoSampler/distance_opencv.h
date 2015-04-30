@@ -12,9 +12,10 @@
 #include <stdio.h>
 #include <CoreGraphics/CoreGraphics.h>
 
-typedef double Distance;
+typedef int64_t DistanceType;
 typedef CGImageRef Image;
 
-Distance compare_opencv(Image a, Image b);
+DistanceType compare_opencv(Image a, Image b);
 
 #endif /* defined(__VideoSampler__distance_opencv__) */
+

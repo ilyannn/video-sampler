@@ -10,8 +10,6 @@ import Foundation
 
 
 // MARK: Abstract distances 
-typealias DistanceType = Int64
-
 protocol DistanceComputing {
     func register(#image: CGImage, index: Int)
     func distanceBetween(#a: Int, b: Int) -> DistanceType 
@@ -35,3 +33,17 @@ class CompressionDistances: DistanceComputing {
 
 // MARK: - OpenCV distances
 
+class OpenCVDistances: DistanceComputing {
+    private var imageDict: [Int: CGImageRef] = [:]
+
+    func register(#image: CGImage, index: Int) {
+        imageDict[index] = image
+    }
+    
+    func distanceBetween(#a: Int, b: Int) -> DistanceType {
+        let ai = imageDict[a]!
+        let bi = imageDict[b]!
+        
+        return compare_opencv(ai, bi)
+    }
+}
