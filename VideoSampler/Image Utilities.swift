@@ -8,7 +8,6 @@
 
 
 // MARK: - Image signatures
-typealias DistanceType = Int64
 typealias Signature = NSData   // consists of SignatureEdge * SignatureEdge * ColorDepth bytes
 
 private let ColorDepth = 4    // color components in RGBA, don't change

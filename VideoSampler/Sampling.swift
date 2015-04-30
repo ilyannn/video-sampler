@@ -12,7 +12,7 @@ import CoreImage
 
 // MARK: Parameters
 class SamplingParameters {
-
+    
     let initialSamples: Int
     let finalSamples: Int
 
@@ -60,10 +60,11 @@ class SamplingOperation: NSOperation {
     let samplingAsset: AVAsset
     let assetSize: Int64?
     
+    let distanceComputer = CompressionDistances()
+    
     let totalProgress: NSProgress
     
     private(set) var sampleFrames: [UIImage] = []
-    private var sampleSignatures: [Signature] = []
     
     enum Stage {
         case Initial
@@ -135,9 +136,9 @@ private extension SamplingOperation {
         switch (stage) {
         case .Extract(var count): 
             if let valid = image {
+                distanceComputer.register(image: valid, index: count)
                 stage = .Extract(++count)
                 sampleFrames += [UIImage(CGImage: valid)!]
-                sampleSignatures += [ImageSignature(valid)]
                 totalProgress.completedUnitCount = Int64(count)
             }
             if count == samplingParameters.initialSamples {
@@ -149,14 +150,13 @@ private extension SamplingOperation {
 
     func dropImages() {        
         // Compress images first
-        let signatures = sampleSignatures
-        var ix = Array(indices(signatures))
-        ix.removeLast()
+        var frames = Array(indices(sampleFrames))
+        frames.removeLast()
         
         // Compute distances between images
-        let distances: [(Int, DistanceType)] = ix.map { index in 
+        let distances: [(Int, DistanceType)] = frames.map { index in 
             self.totalProgress.completedUnitCount++
-            return (index, DistanceBetween(signatures[index], signatures[index + 1]))
+            return (index, self.distanceComputer.distanceBetween(a: index, b: index+1))
         }
         
         // Find indices with the largest distances
