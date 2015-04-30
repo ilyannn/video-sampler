@@ -110,10 +110,10 @@ where Objective-C was fine with
 
     kCGBitmapByteOrder32Big | kCGImageAlphaPremultipliedLast
 
-The translation of these APIs into Swift is also subject to change, so this type of work is still better performed in Objective-C (or plain C).
+The translation of these APIs into Swift is also subject to change, so this type of work is still better performed in Objective-C (or plain C). See [SecureKeys.m](https://github.com/ilyannn/bank-example/blob/master/BankExample/BankExample/SecureKeys.m) from the [BankExample](https://github.com/ilyannn/bank-example/) project.
 
 `precondition` is extremely useful, as it makes some code self-documenting. 
 
-Swift treatment of immutability, optionality, module- and file-level scope is extremely useful and it’s hard to go back to language without those concepts.
+Swift treatment of immutability, optionality, module- and file-level scope is extremely useful and it’s hard to go back to a language without those concepts.
 
 
